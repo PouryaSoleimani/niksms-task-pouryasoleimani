@@ -1,4 +1,4 @@
-'use client'
+"use client";
 /* eslint-disable react-hooks/set-state-in-effect */
 import React, { ComponentPropsWithRef, useCallback, useEffect, useState } from "react";
 import { EmblaCarouselType } from "embla-carousel";

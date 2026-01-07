@@ -38,27 +38,27 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((index) => (
-            <div className="embla__slide border-2 rounded-xl" key={index}>
-              <div className="embla__slide__number">{index + 1}</div>
+            <div className="embla__slide  border-[#f2f2f0]" key={index}>
+              <div className="embla__slide__number border-8 border-[#f2f2f0]">{index + 1}</div>
             </div>
           ))}
         </div>
       </div>
-
-      <div className="embla__controls">
-        <div className="embla__buttons">
+      
+      {/*//^ CONTROLS */}
+      <div className="embla__controls flex items-center justify-center py-6">
+        <div className="embla__buttons flex items-center gap-2">
           <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
+          <div className="embla__dots px-6 py-5 rounded-full flex gap-4 bg-nik-primary">
+            {scrollSnaps.map((_: any, index: number) => (
+              <DotButton
+                key={index}
+                onClick={() => onDotButtonClick(index)}
+                className={"embla__dot".concat(index === selectedIndex ? " embla__dot--selected" : "")}
+              />
+            ))}
+          </div>
           <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
-        </div>
-
-        <div className="embla__dots border">
-          {scrollSnaps.map((_: any, index: number) => (
-            <DotButton
-              key={index}
-              onClick={() => onDotButtonClick(index)}
-              className={"embla__dot".concat(index === selectedIndex ? " embla__dot--selected" : "")}
-            />
-          ))}
         </div>
       </div>
     </section>
