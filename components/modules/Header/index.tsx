@@ -1,8 +1,10 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Circle, Menu, MenuSquare, X } from "lucide-react";
+import { Circle, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import CardNav from "@/components/animated_ui/CardNav";
 
 const HeaderComponent = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -22,20 +24,32 @@ const HeaderComponent = () => {
         <p className="hidden lg:block">منو تسک ها</p>
         {isExpanded ? <X className="size-6" strokeWidth="2.5" /> : <Menu className="size-6" strokeWidth="2.5" />}
       </Button>
-      {isExpanded && (
-        <div className="border absolute top-14 left-8">
-          {menuItems.map((item) => (
-            <Link
-              key={item.id}
-              href={item.href}
-              className="bg-nik-primary flex items-center justify-end gap-2 px-4 py-2 rounded-full text-md font-semibold text-sm tracking-tight cursor-pointer hover:bg-(--nik-foreground) my-2"
-            >
-              {item.title}
-              <Circle className="size-4" />
-            </Link>
-          ))}
-        </div>
-      )}
+      <AnimatePresence initial={false}>
+        {isExpanded && (
+          <motion.ul
+            className="border absolute top-14 left-8"
+            initial={{ opacity: 0, y: 0 }}
+            animate={{
+              opacity: 1,
+              y: 1,
+              transition: { when: "beforeChildren", delayChildren: 0.3, staggerChildren: 0.7 },
+            }}
+            exit={{ opacity: 0, scale: 0 }}
+            key="box"
+          >
+            {menuItems.map((item) => (
+              <Link
+                key={item.id}
+                href={item.href}
+                className="bg-nik-primary flex items-center justify-end gap-2 px-4 py-2 rounded-full text-md font-semibold text-sm tracking-tight cursor-pointer hover:bg-(--nik-foreground) my-2"
+              >
+                {item.title}
+                <Circle className="size-4" />
+              </Link>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
       <p className="font-semibold text-nik-foreground text-xl"> پوریا سلیمانی</p>
     </div>
   );
