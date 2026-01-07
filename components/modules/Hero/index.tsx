@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const HeroComponent = () => {
   return (
-    <div dir="rtl" className="w-full border flex flex-col items-center justify-center h-80 lg:h-100">
+    <div dir="rtl" className="w-full flex flex-col items-center justify-center h-80 lg:h-100">
       <div className="flex items-center gap-2 lg:gap-3">
         <span className="text-[22px] lg:text-[40px] font-extrabold lg:font-bold text-nik-foreground">بزار کُدت</span>
         <Image

@@ -11,7 +11,7 @@ const TopSlider = () => {
   const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
   return (
-    <div className="h-100 lg:h-200 w-full bg-[#f2f2f0] rounded-[25px]! p-6 flex items-center justify-center">
+    <div className="h-100 lg:h-200 w-full bg-[#f2f2f0] rounded-[30px] p-6 flex items-center justify-center">
       <div className="bg-[#f2f2f0] flex flex-col w-full justify-start  h-full gap-4">
         <div className="w-full  font-bold  basis-1/12 text-xl text-nik-foreground h-fit p-5 rounded-2xl bg-white flex items-center-safe justify-between">
           <span>Slider</span>
