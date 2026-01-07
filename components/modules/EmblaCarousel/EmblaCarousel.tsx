@@ -2,14 +2,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useCallback } from "react";
 import { EmblaOptionsType, EmblaCarouselType } from "embla-carousel";
-
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
 import { NextButton, PrevButton, usePrevNextButtons } from "./EmblaCarouselArrowButtons";
+import Image from "next/image";
 
 type PropType = {
-  slides: number[];
+  slides: { id: number; src: string }[];
   options?: EmblaOptionsType;
 };
 
@@ -36,15 +36,17 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   return (
     <section className="embla w-full" dir="rtl">
       <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
-          {slides.map((index) => (
-            <div className="embla__slide  border-[#f2f2f0]" key={index}>
-              <div className="embla__slide__number border-8 border-[#f2f2f0]">{index + 1}</div>
+        <div className="embla__container mt-10">
+          {slides.map((slide) => (
+            <div className="embla__slide h-120 " key={slide.id}>
+              <div className="embla__slide__number border-8 border-[#f2f2f0]">
+                <Image src={slide.src} fill priority alt={`${slide.id}-image`} />
+              </div>
             </div>
           ))}
         </div>
       </div>
-      
+
       {/*//^ CONTROLS */}
       <div className="embla__controls flex items-center justify-center py-6">
         <div className="embla__buttons flex items-center gap-2">

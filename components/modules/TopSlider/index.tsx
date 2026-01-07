@@ -7,9 +7,13 @@ const TopSlider = () => {
     direction: "rtl",
     loop: true,
   };
-  const SLIDE_COUNT = 5;
-  const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
-
+  const SLIDES = [
+    { id: 1, src: "/images/carousel-1/Frame_5.png" },
+    { id: 2, src: "/images/carousel-1/Frame_5.png" },
+    { id: 3, src: "/images/carousel-1/Frame_5.png" },
+    { id: 4, src: "/images/carousel-1/Frame_5.png" },
+    { id: 5, src: "/images/carousel-1/Frame_5.png" },
+  ];
   return (
     <div className="h-100 lg:h-200 w-full bg-[#f2f2f0] rounded-[30px] p-6 flex items-center justify-center">
       <div className="bg-[#f2f2f0] flex flex-col w-full justify-start  h-full gap-4">
