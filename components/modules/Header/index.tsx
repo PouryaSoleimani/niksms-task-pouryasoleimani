@@ -4,6 +4,7 @@ import { Circle, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { cn } from "@/lib/utils";
 
 const HeaderComponent = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -17,11 +18,16 @@ const HeaderComponent = () => {
       <Button
         onClick={() => setIsExpanded(!isExpanded)}
         size={"auto"}
-        variant={"default"}
-        className=" rounded-full  p-2 px-3.5 lg:p-3 lg:px-6 flex items-center-safe justify-center font-bold gap-2 tracking-wide"
+        variant={isExpanded ? "focused" : "default"}
+        className="rounded-full  p-2 px-3.5 lg:p-2 lg:px-6 flex items-center-safe justify-center font-bold gap-1 tracking-wide"
       >
         <p className="hidden lg:block">منو تسک ها</p>
-        {isExpanded ? <X className="size-6" strokeWidth="2.5" /> : <Menu className="size-6" strokeWidth="2.5" />}
+        <label htmlFor="burger" className={cn("burger", isExpanded ? "*:bg-[#dffca1]" : "*:bg-[#094020]")}>
+          <input type="checkbox" id="burger" checked={isExpanded} />
+          <span className={cn(isExpanded ? "focused" : "")}></span>
+          <span className={cn(isExpanded ? "focused" : "")}></span>
+          <span className={cn(isExpanded ? "focused" : "")}></span>
+        </label>
       </Button>
       <AnimatePresence initial={false}>
         {isExpanded && (
@@ -33,7 +39,7 @@ const HeaderComponent = () => {
               y: 1,
               transition: { when: "beforeChildren", delayChildren: 0.3, staggerChildren: 0.7 },
             }}
-            exit={{ opacity: 0, scale: 0 }}
+            exit={{ opacity: 0, y: 0 }}
             key="box"
           >
             {menuItems.map((item) => (
