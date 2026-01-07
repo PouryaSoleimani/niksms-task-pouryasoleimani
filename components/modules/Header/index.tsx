@@ -4,7 +4,6 @@ import { Circle, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import CardNav from "@/components/animated_ui/CardNav";
 
 const HeaderComponent = () => {
   const [isExpanded, setIsExpanded] = useState(false);
