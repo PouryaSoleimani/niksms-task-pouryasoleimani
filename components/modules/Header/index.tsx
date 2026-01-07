@@ -2,6 +2,26 @@ import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 
 const HeaderComponent = () => {
+  const menuItems = [
+    {
+      label: "اسلایدر",
+      bgColor: "#dffca1",
+      textColor: "#094020",
+      links: [{ label: "Company", ariaLabel: "About Company" }],
+    },
+    {
+      label: "تب منو",
+      bgColor: "#dffca1",
+      textColor: "#094020",
+      links: [{ label: "Company", ariaLabel: "About Company" }],
+    },
+    {
+      label: "رنج اسلایدر",
+      bgColor: "#dffca1",
+      textColor: "#094020",
+      links: [{ label: "Company", ariaLabel: "About Company" }],
+    },
+  ];
   return (
     <div className="flex items-center-safe justify-between px-4">
       <Button
