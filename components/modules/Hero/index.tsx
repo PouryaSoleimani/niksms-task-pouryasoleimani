@@ -20,7 +20,7 @@ const HeroComponent = () => {
       <div>
         <Image
           src={"/images/header/header_arrow.png"}
-          className="w-8 lg:w-16 h-18 lg:h-26  translate-y-3"
+          className="w-8 lg:w-16 h-18 lg:h-30  translate-y-3"
           width={500}
           height={500}
           alt="header-logo"
