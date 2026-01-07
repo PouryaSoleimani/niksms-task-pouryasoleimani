@@ -1,40 +1,51 @@
+"use client";
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import { Circle, Menu, MenuSquare, X } from "lucide-react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const HeaderComponent = () => {
-  const menuItems = [
-    {
-      label: "اسلایدر",
-      bgColor: "#dffca1",
-      textColor: "#094020",
-      links: [{ label: "Company", ariaLabel: "About Company" }],
-    },
-    {
-      label: "تب منو",
-      bgColor: "#dffca1",
-      textColor: "#094020",
-      links: [{ label: "Company", ariaLabel: "About Company" }],
-    },
-    {
-      label: "رنج اسلایدر",
-      bgColor: "#dffca1",
-      textColor: "#094020",
-      links: [{ label: "Company", ariaLabel: "About Company" }],
-    },
-  ];
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  useEffect(() => {
+    console.info(isExpanded);
+  }, [isExpanded]);
+
   return (
-    <div className="flex items-center-safe justify-between px-4">
+    <div className="flex items-center-safe justify-between px-4 relative left-0 top-0">
       <Button
+        onClick={() => setIsExpanded(!isExpanded)}
         size={"auto"}
         variant={"default"}
-        className=" rounded-full p-2 px-3.5 lg:p-3 lg:px-6 flex items-center-safe justify-center font-bold gap-2 tracking-wide"
+        className=" rounded-full  p-2 px-3.5 lg:p-3 lg:px-6 flex items-center-safe justify-center font-bold gap-2 tracking-wide"
       >
         <p className="hidden lg:block">منو تسک ها</p>
-        <Menu className="size-6" strokeWidth="2.5" />
+        {isExpanded ? <X className="size-6" strokeWidth="2.5" /> : <Menu className="size-6" strokeWidth="2.5" />}
       </Button>
+      {isExpanded && (
+        <div className="border absolute top-14 left-8">
+          {menuItems.map((item) => (
+            <Link
+              key={item.id}
+              href={item.href}
+              className="bg-nik-primary flex items-center justify-end gap-2 px-4 py-2 rounded-full text-md font-semibold text-sm tracking-tight cursor-pointer hover:bg-(--nik-foreground) my-2"
+            >
+              {item.title}
+              <Circle className="size-4" />
+            </Link>
+          ))}
+        </div>
+      )}
       <p className="font-semibold text-nik-foreground text-xl"> پوریا سلیمانی</p>
     </div>
   );
 };
 
 export default HeaderComponent;
+
+const menuItems = [
+  { id: 1, title: "اسلایدر", href: "/" },
+  { id: 2, title: "تب منو", href: "/" },
+  { id: 3, title: "فرم ثبت نام", href: "/" },
+  { id: 4, title: "رنج اسلایدر", href: "/" },
+];
