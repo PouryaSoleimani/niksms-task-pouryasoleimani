@@ -15,7 +15,7 @@ const HeaderComponent = () => {
 
   return (
     <div className="flex items-center-safe justify-between px-4 relative left-0 top-0">
-      <Button
+      {/* <Button
         onClick={() => setIsExpanded(!isExpanded)}
         size={"auto"}
         variant={isExpanded ? "focused" : "default"}
@@ -54,7 +54,38 @@ const HeaderComponent = () => {
             ))}
           </motion.ul>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
+
+      <label
+        className={cn(
+          "main border border-transparent hover:border-[#094020]",
+          isExpanded && "bg-[#094020]! text-[#dffca1]!"
+        )}
+      >
+        <p className="hidden lg:block text-sm">منو تسک ها</p>
+        <input className="inp" type="checkbox" checked={!isExpanded} onChange={() => setIsExpanded(!isExpanded)} />
+        <div className={cn("bar", isExpanded && "expanded")}>
+          <span className={cn("top bar-list", isExpanded && "bg-[#dffca1]!")}></span>
+          <span className={cn("middle bar-list", isExpanded && "bg-[#dffca1]!")}></span>
+          <span className={cn("bottom bar-list", isExpanded && "bg-[#dffca1]!")}></span>
+        </div>
+        <section className="menu-container">
+          {menuItems.map((item) => (
+            <Link key={item.id} href={item.href} className="menu-list flex items-center-safe gap-1">
+              <Circle className="size-4" />
+              {item.title}
+            </Link>
+          ))}
+        </section>
+
+        {/* <section className="menu-container">
+          <div className="menu-list">اسلایدر</div>
+          <div className="menu-list">تب منو</div>
+          <div className="menu-list">فرم ثبت نام</div>
+          <div className="menu-list">رنج اسلایدر</div>
+        </section> */}
+      </label>
+
       <p className="font-semibold text-nik-foreground text-xl"> پوریا سلیمانی</p>
     </div>
   );
