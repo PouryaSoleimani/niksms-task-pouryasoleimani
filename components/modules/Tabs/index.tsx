@@ -3,6 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArrowLeft, X } from "lucide-react";
 import Image from "next/image";
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTrigger } from "@/components/animate-ui/components/radix/sheet";
+import { SheetTitle } from "@/components/animate-ui/primitives/radix/sheet";
 
 const TabsComponent = () => {
   return (
@@ -50,30 +51,24 @@ const TabsComponent = () => {
                     در ستون و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه
                     درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد.
                   </div>
-                  <div className="lg:mt-16">
+                  <div className="lg:mt-12">
                     <Button
                       variant={"focused"}
-                      className="rounded-lg mt-3.5 flex items-center text-[12px] justify-between text-sm w-35.75 lg:w-43.25 h-10 lg:h-11"
+                      className="rounded-lg group mt-3.5 flex items-center text-[12px] justify-between text-sm w-35.75 lg:w-43.25 h-10 lg:h-11"
                     >
                       <p className="text-white! font-medium text-[12px] lg:text-[14px]"> اطلاعات بیشتر </p>
-                      <ArrowLeft className="size-5.5" />
+                      <ArrowLeft className="size-5.5 group-hover:-translate-x-1 transition-all duration-300" />
                     </Button>
                   </div>
                 </div>
                 <div id="TABS__VIDEO" className=" relative lg:basis-1/2 inset-0 flex items-center justify-center">
                   <Sheet>
                     <SheetTrigger>
-                      <Image
-                        src={"/images/tabs/Thumbnail.png"}
-                        width={400}
-                        height={200}
-                        alt="thumbnail"
-                        className="mt-10 w-full h-full object-fill"
-                      />
+                      <Image src={item.thumbnail} width={400} height={200} alt="thumbnail" className="mt-10 w-full h-full object-fill" />
                     </SheetTrigger>
                     <SheetContent showCloseButton={false} dir="rtl" side="bottom" className="border-t-6 h-84 border-t-[#dffca1] rounded-t-xl">
                       <SheetHeader className="inline-flex items-center justify-between ">
-                        <p className="font-semibold text-md">پاپ آپ ویدیو</p>
+                        <SheetTitle className="font-semibold text-md">پاپ آپ ویدیو</SheetTitle>
                         <SheetClose asChild>
                           <Button variant={"ghost"} className="rounded-md py-3 size-10 w-auto h-auto">
                             <X className="size-6" />
@@ -97,11 +92,35 @@ const TabsComponent = () => {
 
 export default TabsComponent;
 
-type TabItem = { id: number; title: string; iconHeader: string; iconTitle: string };
+type TabItem = { id: number; title: string; iconHeader: string; iconTitle: string; thumbnail: string };
 
 const tabList: TabItem[] = [
-  { id: 1, title: "منو شماره یک", iconHeader: "/images/tabs/header/1.png", iconTitle: "/images/tabs/header/11.png" },
-  { id: 2, title: "منو شماره دو", iconHeader: "/images/tabs/header/2.png", iconTitle: "/images/tabs/header/2.png" },
-  { id: 3, title: "منو شماره سه", iconHeader: "/images/tabs/header/3.png", iconTitle: "/images/tabs/header/3.png" },
-  { id: 4, title: "منو شماره چهار", iconHeader: "/images/tabs/header/4.png", iconTitle: "/images/tabs/header/4.png" },
+  {
+    id: 1,
+    title: "منو شماره یک",
+    iconHeader: "/images/tabs/header/1.png",
+    iconTitle: "/images/tabs/header/11.png",
+    thumbnail: "/images/tabs/Thumbnail_1.png",
+  },
+  {
+    id: 2,
+    title: "منو شماره دو",
+    iconHeader: "/images/tabs/header/2.png",
+    iconTitle: "/images/tabs/header/22.png",
+    thumbnail: "/images/tabs/Thumbnail_2.png",
+  },
+  {
+    id: 3,
+    title: "منو شماره سه",
+    iconHeader: "/images/tabs/header/3.png",
+    iconTitle: "/images/tabs/header/33.png",
+    thumbnail: "/images/tabs/Thumbnail_3.png",
+  },
+  {
+    id: 4,
+    title: "منو شماره چهار",
+    iconHeader: "/images/tabs/header/4.png",
+    iconTitle: "/images/tabs/header/44.png",
+    thumbnail: "/images/tabs/Thumbnail_4.png",
+  },
 ];
