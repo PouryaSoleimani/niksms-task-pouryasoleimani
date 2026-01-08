@@ -2,19 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArrowLeft, X } from "lucide-react";
 import Image from "next/image";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/animate-ui/components/radix/sheet";
+import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTrigger } from "@/components/animate-ui/components/radix/sheet";
+
 const TabsComponent = () => {
   return (
-    <div className="h-200 min-[460px]:h-108 sm:h-115 lg:h-180 w-full lg:w-[90%] mx-auto bg-[#f2f2f0]  lg:rounded-[30px] p-3.5 lg:p-6 flex items-center justify-center">
+    <div className="h-200 lg:h-180 w-full lg:w-[90%] mx-auto bg-[#f2f2f0]  lg:rounded-[30px] p-3.5 lg:p-6 flex items-center justify-center">
       <div className="bg-[#f2f2f0] overflow-hidden rounded-lg flex flex-col w-full justify-start  h-full gap-2.5 lg:gap-4">
         <div
           id="TOP"
@@ -31,13 +23,13 @@ const TabsComponent = () => {
           <Tabs dir="rtl" defaultValue="1" className="overflow-hidden w-full h-full p-2.5">
             <TabsList
               id="TAB__LIST"
-              className=" flex w-full overflow-x-auto overflow-y-hidden whitespace-nowrap gap-1 shrink-0! bg-[#dffca1] border border-[#D5f39B] rounded-lg scrollbar-hide touch-pan-x scroll-smooth snap-x snap-mandatory"
+              className=" flex w-full lg:w-[92%] lg:mx-auto lg:mt-8 overflow-x-auto lg:overflow-x-hidden overflow-y-hidden whitespace-nowrap gap-1 shrink-0! bg-[#dffca1] border border-[#D5f39B] rounded-lg lg:rounded-2xl scrollbar-hide touch-pan-x scroll-smooth snap-x snap-mandatory"
             >
               {tabList.map((item: TabItem) => (
                 <TabsTrigger
                   key={item.id}
                   value={item.id.toString()}
-                  className="no-scrollbar flex-none shrink-0 scrollbar-hide flex items-center gap-1.5 text-[#094020] font-bold w-32 h-9 cursor-pointer transition-all duration-300 "
+                  className="no-scrollbar flex-none shrink-0 scrollbar-hide flex items-center gap-1.5 text-[#094020] font-bold w-32 lg:w-[24%] lg:overflow-hidden h-9 lg:h-11 cursor-pointer transition-all duration-300 lg:rounded-xl"
                 >
                   <Image src={item.iconHeader} width={20} height={20} alt={item.title} />
                   {item.title}
@@ -45,25 +37,30 @@ const TabsComponent = () => {
               ))}
             </TabsList>
             {tabList.map((item: TabItem) => (
-              <TabsContent key={item.id} value={item.id.toString()} className="p-1.5 flex flex-col gap-3 overflow-hidden">
-                <div className="flex items-center-safe font-bold gap-2.5 text-lg">
-                  <div className="bg-[#f2f2f0] p-1 rounded-md border border-[#E9EBE8]">
-                    <Image src={item.iconTitle} width={20} height={20} alt={item.title} />
+              <TabsContent key={item.id} value={item.id.toString()} className="p-1.5 mt-4 lg:px-16 flex flex-col lg:flex-row gap-3 overflow-hidden">
+                <div className="p-2 lg:flex lg:flex-col lg:justify-start lg:mt-10 lg:gap-5 lg:basis-1/2">
+                  <div className="flex items-center-safe font-bold gap-2.5 text-lg">
+                    <div className="bg-[#f2f2f0] p-1 rounded-md border border-[#E9EBE8]">
+                      <Image src={item.iconTitle} width={20} height={20} alt={item.title} />
+                    </div>
+                    <h4>{item.title}</h4>
                   </div>
-                  <h4>{item.title}</h4>
+                  <div className="font-normal text-[#094020] leading-8 lg:text-[14px]">
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
+                    در ستون و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه
+                    درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد.
+                  </div>
+                  <div className="lg:mt-16">
+                    <Button
+                      variant={"focused"}
+                      className="rounded-lg mt-3.5 flex items-center text-[12px] justify-between text-sm w-35.75 lg:w-43.25 h-10 lg:h-11"
+                    >
+                      <p className="text-white! font-medium text-[12px] lg:text-[14px]"> اطلاعات بیشتر </p>
+                      <ArrowLeft className="size-5.5" />
+                    </Button>
+                  </div>
                 </div>
-                <div className="font-normal text-[#094020] leading-8">
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در
-                  ستون و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد
-                  گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد.
-                </div>
-                <div>
-                  <Button variant={"focused"} className="rounded-lg mt-3.5 flex items-center text-[12px] justify-between text-sm w-35.75 h-10">
-                    <p className="text-white font-medium text-[12px]"> اطلاعات بیشتر </p>
-                    <ArrowLeft className="size-5.5" />
-                  </Button>
-                </div>
-                <div id="TABS__VIDEO" className=" relative inset-0">
+                <div id="TABS__VIDEO" className=" relative lg:basis-1/2 inset-0 flex items-center justify-center">
                   <Sheet>
                     <SheetTrigger>
                       <Image

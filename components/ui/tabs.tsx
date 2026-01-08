@@ -13,7 +13,7 @@ function TabsList({ className, ...props }: React.ComponentProps<typeof TabsPrimi
   return (
     <TabsPrimitive.List
       data-slot="tabs-list"
-      className={cn("inline-flex h-auto p-1 w-fit items-center justify-between rounded-lg", className)}
+      className={cn("inline-flex h-auto p-1 lg:p-0.75 w-fit items-center justify-between rounded-lg", className)}
       {...props}
     />
   );
