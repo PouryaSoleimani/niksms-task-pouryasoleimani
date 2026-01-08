@@ -6,6 +6,8 @@ const TopSlider = () => {
     dragFree: false,
     direction: "rtl",
     loop: true,
+    align: "center",
+    startIndex : 5
   };
   const SLIDES = [
     { id: 1, src: "/images/carousel-1/Frame_5.png" },
