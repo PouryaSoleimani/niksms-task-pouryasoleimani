@@ -1,4 +1,6 @@
+import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 
 const TabsComponent = () => {
@@ -47,6 +49,15 @@ const TabsComponent = () => {
                   بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و
                   متخصصان را می طلبد.
                 </div>
+                <div>
+                  <Button
+                    variant={"focused"}
+                    className="rounded-lg flex items-center text-[12px] justify-between text-white text-sm w-35.75 h-10"
+                  >
+                    <p className="text-white! text-[12px]"> اطلاعات بیشتر </p>
+                    <ArrowLeft className="size-5" />
+                  </Button>
+                </div>
               </TabsContent>
             ))}
             <TabsContent value="1">1</TabsContent>
@@ -61,6 +72,7 @@ const TabsComponent = () => {
 };
 
 export default TabsComponent;
+
 type TabItem = { id: number; title: string; iconHeader: string; iconTitle: string };
 
 const tabList: TabItem[] = [
