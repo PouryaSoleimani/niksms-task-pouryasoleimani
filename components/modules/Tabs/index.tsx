@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, X } from "lucide-react";
 import Image from "next/image";
 import {
   Sheet,
@@ -27,17 +27,17 @@ const TabsComponent = () => {
           </span>
         </div>
 
-        <div
-          id="BOTTOM__TABS"
-          className="flex items-center-safe  gap-4 basis-11/12 rounded-lg bg-white lg:rounded-[30px]"
-        >
-          <Tabs dir="rtl" defaultValue="1" className="border w-full h-full p-2.5">
-            <TabsList id="TAB__LIST" className="border  bg-[#dffca1] border-[#D5f39B] gap-1 overflow-scroll!">
+        <div id="BOTTOM__TABS" className="flex items-center-safe gap-4 basis-11/12 rounded-lg bg-white lg:rounded-[30px]">
+          <Tabs dir="rtl" defaultValue="1" className="overflow-hidden w-full h-full p-2.5">
+            <TabsList
+              id="TAB__LIST"
+              className=" flex w-full overflow-x-auto overflow-y-hidden whitespace-nowrap gap-1 shrink-0! bg-[#dffca1] border border-[#D5f39B] rounded-lg scrollbar-hide touch-pan-x scroll-smooth snap-x snap-mandatory"
+            >
               {tabList.map((item: TabItem) => (
                 <TabsTrigger
                   key={item.id}
                   value={item.id.toString()}
-                  className=" text-[#094020] font-bold w-31.25 h-9 cursor-pointer transition-all duration-300"
+                  className="no-scrollbar flex-none shrink-0 scrollbar-hide flex items-center gap-1.5 text-[#094020] font-bold w-32 h-9 cursor-pointer transition-all duration-300 "
                 >
                   <Image src={item.iconHeader} width={20} height={20} alt={item.title} />
                   {item.title}
@@ -45,7 +45,7 @@ const TabsComponent = () => {
               ))}
             </TabsList>
             {tabList.map((item: TabItem) => (
-              <TabsContent key={item.id} value={item.id.toString()} className="p-1.5 flex flex-col gap-3">
+              <TabsContent key={item.id} value={item.id.toString()} className="p-1.5 flex flex-col gap-3 overflow-hidden">
                 <div className="flex items-center-safe font-bold gap-2.5 text-lg">
                   <div className="bg-[#f2f2f0] p-1 rounded-md border border-[#E9EBE8]">
                     <Image src={item.iconTitle} width={20} height={20} alt={item.title} />
@@ -53,21 +53,17 @@ const TabsComponent = () => {
                   <h4>{item.title}</h4>
                 </div>
                 <div className="font-normal text-[#094020] leading-8">
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها
-                  و متون بلکه روزنامه و مجله در ستون و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف
-                  بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و
-                  متخصصان را می طلبد.
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در
+                  ستون و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد
+                  گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد.
                 </div>
                 <div>
-                  <Button
-                    variant={"focused"}
-                    className="rounded-lg flex items-center text-[12px] justify-between text-sm w-35.75 h-10"
-                  >
+                  <Button variant={"focused"} className="rounded-lg mt-3.5 flex items-center text-[12px] justify-between text-sm w-35.75 h-10">
                     <p className="text-white font-medium text-[12px]"> اطلاعات بیشتر </p>
                     <ArrowLeft className="size-5.5" />
                   </Button>
                 </div>
-                <div id="TABS__VIDEO" className="overflow-hidden relative inset-0">
+                <div id="TABS__VIDEO" className=" relative inset-0">
                   <Sheet>
                     <SheetTrigger>
                       <Image
@@ -78,18 +74,18 @@ const TabsComponent = () => {
                         className="mt-10 w-full h-full object-fill"
                       />
                     </SheetTrigger>
-                    <SheetContent side="bottom">
-                      <SheetHeader>
+                    <SheetContent showCloseButton={false} dir="rtl" side="bottom" className="border-t-6 h-84 border-t-[#dffca1] rounded-t-xl">
+                      <SheetHeader className="inline-flex items-center justify-between ">
+                        <p className="font-semibold text-md">پاپ آپ ویدیو</p>
                         <SheetClose asChild>
-                          <Button variant="outline">Close</Button>
+                          <Button variant={"ghost"} className="rounded-md py-3 size-10 w-auto h-auto">
+                            <X className="size-6" />
+                          </Button>
                         </SheetClose>
-                        <SheetTitle>Sheet Title</SheetTitle>
-                        <SheetDescription>Sheet Description</SheetDescription>
                       </SheetHeader>
-                      <p>Sheet Content</p>
-                      <SheetFooter>
-                        <button>Accept</button>
-                      </SheetFooter>
+                      <div className="flex items-center-safe justify-center py-2">
+                        <Image src={"/images/tabs/Popup__mobile.png"} width={350} height={350} alt="pop_up" />
+                      </div>
                     </SheetContent>
                   </Sheet>
                 </div>
