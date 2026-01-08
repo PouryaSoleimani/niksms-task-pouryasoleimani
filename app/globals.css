@@ -469,3 +469,13 @@ body {
   border: 1px solid #094020;
   padding: 0;
 }
+
+#BOTTOM__TABS {
+  scrollbar-color: transparent;
+  scrollbar-width: 0;
+  scrollbar-gutter: 0;
+}
+
+.BOTTOM__TABS::-webkit-scrollbar {
+  display: none;
+}
