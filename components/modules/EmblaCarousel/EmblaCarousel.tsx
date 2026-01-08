@@ -28,10 +28,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi, onNavButtonClick);
 
-  const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } = usePrevNextButtons(
-    emblaApi,
-    onNavButtonClick
-  );
+  const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } = usePrevNextButtons(emblaApi, onNavButtonClick);
 
   return (
     <section className="embla relative inset-0 w-full" dir="rtl">
