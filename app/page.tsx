@@ -1,6 +1,7 @@
 import GapComponent from "@/components/modules/Gap";
 import HeaderComponent from "@/components/modules/Header";
 import HeroComponent from "@/components/modules/Hero";
+import TabsComponent from "@/components/modules/Tabs";
 import TopSlider from "@/components/modules/TopSlider";
 
 const HomePage = () => {
@@ -9,6 +10,8 @@ const HomePage = () => {
       <HeaderComponent />
       <HeroComponent />
       <TopSlider />
+      <GapComponent />
+      <TabsComponent />
       <GapComponent />
     </div>
   );
