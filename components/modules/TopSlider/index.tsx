@@ -16,7 +16,7 @@ const TopSlider = () => {
   ];
 
   return (
-    <div className="h-90 min-[460px]:h-108 sm:h-115 lg:h-200 w-full lg:w-[90%] mx-auto bg-[#f2f2f0]  lg:rounded-[30px] p-3.5 lg:p-6 flex items-center justify-center">
+    <div className="h-90 min-[460px]:h-108 sm:h-115 lg:h-180 w-full lg:w-[90%] mx-auto bg-[#f2f2f0]  lg:rounded-[30px] p-3.5 lg:p-6 flex items-center justify-center">
       <div className="bg-[#f2f2f0] overflow-hidden rounded-lg flex flex-col w-full justify-start  h-full gap-2.5 lg:gap-4">
         <div
           id="TOP"
