@@ -2,14 +2,23 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
-
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/animate-ui/components/radix/sheet";
 const TabsComponent = () => {
   return (
-    <div className="h-auto min-[460px]:h-108 sm:h-115 lg:h-180 w-full lg:w-[90%] mx-auto bg-[#f2f2f0]  lg:rounded-[30px] p-3.5 lg:p-6 flex items-center justify-center">
+    <div className="h-200 min-[460px]:h-108 sm:h-115 lg:h-180 w-full lg:w-[90%] mx-auto bg-[#f2f2f0]  lg:rounded-[30px] p-3.5 lg:p-6 flex items-center justify-center">
       <div className="bg-[#f2f2f0] overflow-hidden rounded-lg flex flex-col w-full justify-start  h-full gap-2.5 lg:gap-4">
         <div
           id="TOP"
-          className="w-full  font-bold basis-1/12 text-md lg:text-xl text-nik-foreground h-fit p-3 lg:p-5 rounded-lg lg:rounded-2xl bg-white flex items-center-safe justify-between"
+          className="w-full font-bold basis-1/12 text-md lg:text-xl text-nik-foreground h-fit p-3 lg:p-5 rounded-lg lg:rounded-2xl bg-white flex items-center-safe justify-between"
         >
           <span>TabMenu</span>
           <span className="flex gap-2 items-center">
@@ -20,10 +29,10 @@ const TabsComponent = () => {
 
         <div
           id="BOTTOM__TABS"
-          className="flex items-center-safe gap-4 basis-11/12 rounded-lg bg-white lg:rounded-[30px]"
+          className="flex items-center-safe  gap-4 basis-11/12 rounded-lg bg-white lg:rounded-[30px]"
         >
-          <Tabs dir="rtl" defaultValue="1" className="border w-full h-full p-2.5 overflow-scroll">
-            <TabsList id="TAB__LIST" className="border bg-[#dffca1] border-[#D5f39B] gap-1">
+          <Tabs dir="rtl" defaultValue="1" className="border w-full h-full p-2.5">
+            <TabsList id="TAB__LIST" className="border  bg-[#dffca1] border-[#D5f39B] gap-1 overflow-scroll!">
               {tabList.map((item: TabItem) => (
                 <TabsTrigger
                   key={item.id}
@@ -52,18 +61,40 @@ const TabsComponent = () => {
                 <div>
                   <Button
                     variant={"focused"}
-                    className="rounded-lg flex items-center text-[12px] justify-between text-white text-sm w-35.75 h-10"
+                    className="rounded-lg flex items-center text-[12px] justify-between text-sm w-35.75 h-10"
                   >
-                    <p className="text-white! text-[12px]"> اطلاعات بیشتر </p>
-                    <ArrowLeft className="size-5" />
+                    <p className="text-white font-medium text-[12px]"> اطلاعات بیشتر </p>
+                    <ArrowLeft className="size-5.5" />
                   </Button>
+                </div>
+                <div id="TABS__VIDEO" className="overflow-hidden relative inset-0">
+                  <Sheet>
+                    <SheetTrigger>
+                      <Image
+                        src={"/images/tabs/Thumbnail.png"}
+                        width={400}
+                        height={200}
+                        alt="thumbnail"
+                        className="mt-10 w-full h-full object-fill"
+                      />
+                    </SheetTrigger>
+                    <SheetContent side="bottom">
+                      <SheetHeader>
+                        <SheetClose asChild>
+                          <Button variant="outline">Close</Button>
+                        </SheetClose>
+                        <SheetTitle>Sheet Title</SheetTitle>
+                        <SheetDescription>Sheet Description</SheetDescription>
+                      </SheetHeader>
+                      <p>Sheet Content</p>
+                      <SheetFooter>
+                        <button>Accept</button>
+                      </SheetFooter>
+                    </SheetContent>
+                  </Sheet>
                 </div>
               </TabsContent>
             ))}
-            <TabsContent value="1">1</TabsContent>
-            <TabsContent value="2">2</TabsContent>
-            <TabsContent value="3">3</TabsContent>
-            <TabsContent value="4">4</TabsContent>
           </Tabs>
         </div>
       </div>
