@@ -1,3 +1,5 @@
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 const TabsComponent = () => {
   return (
     <div className="h-90 min-[460px]:h-108 sm:h-115 lg:h-180 w-full lg:w-[90%] mx-auto bg-[#f2f2f0]  lg:rounded-[30px] p-3.5 lg:p-6 flex items-center justify-center">
@@ -14,7 +16,14 @@ const TabsComponent = () => {
         </div>
 
         <div id="BOTTOM" className="flex items-center-safe gap-4 basis-11/12 rounded-lg bg-white lg:rounded-[30px]">
-          <span>TABS</span>
+          <Tabs defaultValue="account">
+            <TabsList>
+              <TabsTrigger value="account">Account</TabsTrigger>
+              <TabsTrigger value="password">Password</TabsTrigger>
+            </TabsList>
+            <TabsContent value="account">ACCOUNT</TabsContent>
+            <TabsContent value="password">PASSWORD</TabsContent>
+          </Tabs>
         </div>
       </div>
     </div>
@@ -22,3 +31,5 @@ const TabsComponent = () => {
 };
 
 export default TabsComponent;
+
+const tabList = [{ id: 1, title: "منو شماره یک", icon: "/images/tabs/header/1.png" }];
