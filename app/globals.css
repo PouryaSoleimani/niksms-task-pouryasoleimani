@@ -336,9 +336,18 @@ body {
 }
 
 @media screen and (min-width >= 640px) {
+  body {
+    background-color: black !important;
+  }
+}
+
+@media screen and (min-width >= 640) {
   .embla {
     --slide-size: 50%;
     --slide-height: 25rem;
+  }
+  .embla-mask {
+    mask-image: linear-gradient(to left, transparent, black 100px, black calc(100% - 100px), transparent);
   }
 }
 
@@ -346,10 +355,9 @@ body {
   overflow: hidden;
 }
 
-.embla {
+.embla_mask {
   mask-image: linear-gradient(to left, transparent, black 100px, black calc(100% - 100px), transparent);
 }
-
 
 /* .embla__viewport::before {
   content: "";

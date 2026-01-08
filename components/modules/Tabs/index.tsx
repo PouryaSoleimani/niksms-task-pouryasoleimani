@@ -37,6 +37,7 @@ const TabsComponent = () => {
                 </TabsTrigger>
               ))}
             </TabsList>
+
             {tabList.map((item: TabItem) => (
               <TabsContent key={item.id} value={item.id.toString()} className="p-1.5 mt-4 lg:px-16 flex flex-col lg:flex-row gap-3 overflow-hidden">
                 <div className="p-2 lg:flex lg:flex-col lg:justify-start lg:mt-10 lg:gap-5 lg:basis-1/2">
@@ -61,7 +62,7 @@ const TabsComponent = () => {
                     </Button>
                   </div>
                 </div>
-                <div id="TABS__VIDEO" className=" relative lg:basis-1/2 inset-0 flex items-center justify-center">
+                <div id="TABS__VIDEO" className="relative lg:basis-1/2 inset-0 flex items-center justify-center">
                   <Sheet>
                     <SheetTrigger>
                       <Image src={item.thumbnail} width={400} height={200} alt="thumbnail" className="mt-10 w-full h-full object-fill" />

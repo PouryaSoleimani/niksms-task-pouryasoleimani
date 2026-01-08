@@ -1,15 +1,11 @@
 "use client";
-import { Circle } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { Circle } from "lucide-react";
 
 const HeaderComponent = () => {
   const [isExpanded, setIsExpanded] = useState(false);
-
-  useEffect(() => {
-    console.info(isExpanded);
-  }, [isExpanded]);
 
   return (
     <div className="flex items-center-safe justify-between px-4 relative left-0 top-0">
@@ -22,7 +18,7 @@ const HeaderComponent = () => {
           <span className={cn("bottom bar-list", isExpanded && "bg-[#dffca1]!")}></span>
         </div>
         <section className="menu-container">
-          {menuItems.map((item) => (
+          {menuItems.map((item: MenuItem) => (
             <Link key={item.id} href={item.href} className="menu-list flex items-center-safe gap-1.5">
               <Circle className={cn("size-4", isExpanded && "fill-[#dffca1]")} />
               {item.title}
@@ -38,7 +34,9 @@ const HeaderComponent = () => {
 
 export default HeaderComponent;
 
-const menuItems = [
+type MenuItem = { id: number; title: string; href: string };
+
+const menuItems: Array<MenuItem> = [
   { id: 1, title: "اسلایدر", href: "/" },
   { id: 2, title: "تب منو", href: "/" },
   { id: 3, title: "فرم ثبت نام", href: "/" },

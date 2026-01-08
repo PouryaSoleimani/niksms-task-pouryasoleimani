@@ -7,9 +7,12 @@ import useEmblaCarousel from "embla-carousel-react";
 import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
 import { NextButton, PrevButton, usePrevNextButtons } from "./EmblaCarouselArrowButtons";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
+
+type SlideItem = { id: number; src: string };
 
 type PropType = {
-  slides: { id: number; src: string }[];
+  slides: SlideItem[];
   options?: EmblaOptionsType;
 };
 
@@ -31,10 +34,10 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } = usePrevNextButtons(emblaApi, onNavButtonClick);
 
   return (
-    <section className="embla relative inset-0 w-full" dir="rtl">
+    <section className={cn("embla relative inset-0 w-full embla_mask")} dir="rtl">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container mt-4 lg:mt-10 items-center justify-center-safe">
-          {slides.map((slide) => (
+          {slides.map((slide: SlideItem) => (
             <div
               className="embla__slide flex-none basis-[80%] sm:basis-[70%] md:basis-[60%] lg:basis-[68%] h-46 min-[460px]:h-64 sm:h-72 lg:h-110 mx-auto lg:mx-2"
               key={slide.id}
