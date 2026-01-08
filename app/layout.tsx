@@ -2,9 +2,13 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const Estedad = localFont({
+export const Estedad = localFont({
   src: "./../public/fonts/Estedad-FD[KSHD,wght].woff2",
 });
+
+// export const Poppins = localFont({
+//   src : ''
+// })
 
 export const metadata: Metadata = {
   title: "NIK-SMS TASK | POURYA SOLEIMANI",

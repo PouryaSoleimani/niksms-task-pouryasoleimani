@@ -346,7 +346,12 @@ body {
   overflow: hidden;
 }
 
-.embla__viewport::before {
+.embla {
+  mask-image: linear-gradient(to left, transparent, black 100px, black calc(100% - 100px), transparent);
+}
+
+
+/* .embla__viewport::before {
   content: "";
   z-index: 999;
   background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
@@ -370,7 +375,7 @@ body {
   position: absolute;
   right: -13px;
   border-radius: 10px;
-}
+} */
 
 .embla__container {
   display: flex;
@@ -492,10 +497,10 @@ body {
 } */
 
 .no-scrollbar {
-  -ms-overflow-style: none; 
-  scrollbar-width: none; 
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .no-scrollbar::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
