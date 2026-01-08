@@ -38,7 +38,10 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container mt-4 lg:mt-10">
           {slides.map((slide) => (
-            <div className="embla__slide h-46 lg:h-120 mx-0.5 " key={slide.id}>
+            <div
+              className="embla__slide flex-none basis-[85%] sm:basis-[70%] md:basis-[60%] lg:basis-[65%] h-46 min-[460px]:h-64 sm:h-72 lg:h-110 mx-0.5 "
+              key={slide.id}
+            >
               <div className="embla__slide__number border-8 border-[#f2f2f0]">
                 <Image src={slide.src} fill suppressHydrationWarning priority alt={`${slide.id}-image`} />
               </div>
@@ -49,7 +52,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
 
       {/*//^ CONTROLS */}
       <div className="overflow-hidden flex items-center-safe justify-center">
-        <div className="embla__controls scale-[0.4] mx-auto lg:scale-75 flex items-center justify-center-safe py-4 -translate-y-4 lg:-transalte-y-0 lg:py-6">
+        <div className="embla__controls scale-[0.4] mx-auto lg:scale-75 flex items-center justify-center-safe py-4 -translate-y-4 lg:translate-y-4 lg:py-6">
           <div className="embla__buttons flex items-center gap-2">
             <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
             <div className="embla__dots px-6 py-5 rounded-full flex gap-4 bg-nik-primary">
