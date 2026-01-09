@@ -41,7 +41,7 @@ const FormRightComponent = () => {
   return (
     <div className="min-w-full">
       <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit(submitHandler)} dir="rtl" className="border flex-0 lg:w-2/3 mx-auto flex flex-col gap-4">
+        <form onSubmit={methods.handleSubmit(submitHandler)} dir="rtl" className="flex-0 lg:w-2/3 mx-auto flex flex-col gap-4">
           <Controller
             control={methods.control}
             name="username"
@@ -131,7 +131,7 @@ const FormRightComponent = () => {
           </div>
 
           {/* BUTTONS WRAPPER */}
-          <div id="BUTTONS__WRAPPER" className="flex gap-3 p-3">
+          <div id="BUTTONS__WRAPPER" className="flex gap-3 py-5">
             <Button
               disabled={!isValid || isSubmitting}
               aria-disabled={!isValid || isSubmitting}
@@ -145,7 +145,7 @@ const FormRightComponent = () => {
               <Button
                 type="button"
                 variant={"outline"}
-                className=" bg-(--nik-gray) hover:bg-secondary border border-transparent hover:border-stone-200  rounded-md font-semibold"
+                className=" bg-(--nik-gray) text-sm text-stone-500 hover:bg-secondary border border-transparent hover:border-stone-200  rounded-md font-semibold"
               >
                 انصراف
               </Button>
