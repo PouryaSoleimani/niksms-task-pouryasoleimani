@@ -11,6 +11,7 @@ const FormSchema = z.object({
 type FormTypes = z.infer<typeof FormSchema>;
 
 const FormRightComponent = () => {
+  //^ REACT__HOOK__FORM
   const methods = useForm<FormTypes>({
     mode: "onChange",
     resolver: zodResolver(FormSchema),
@@ -20,6 +21,7 @@ const FormRightComponent = () => {
     },
   });
 
+  //* SUBMIT___HANDLER
   function submitHandler(data: FormTypes) {
     console.info("DATA => ", data);
   }
@@ -28,7 +30,11 @@ const FormRightComponent = () => {
     <div>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(submitHandler)}>
-          <Controller control={methods.control} name="username" render={({ field }) => <input value={field.value} onChange={field.onChange} className="border" />} />
+          <Controller
+            control={methods.control}
+            name="username"
+            render={({ field }) => <input value={field.value} onChange={field.onChange} className="border" />}
+          />
         </form>
       </FormProvider>
     </div>
