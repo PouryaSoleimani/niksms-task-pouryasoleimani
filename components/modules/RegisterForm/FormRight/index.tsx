@@ -28,6 +28,8 @@ const FormRightComponent = () => {
       password: "",
     },
   });
+
+  // ! FORM__STATE
   const { isValid, isSubmitting } = methods.formState;
 
   //* SUBMIT___HANDLER
@@ -134,13 +136,17 @@ const FormRightComponent = () => {
               disabled={!isValid || isSubmitting}
               aria-disabled={!isValid || isSubmitting}
               variant={"focused"}
-              className="font-semibold rounded-md"
+              className="font-semibold rounded-md text-sm w-44"
               type="submit"
             >
               ثبت اطلاعات
             </Button>
             <div>
-              <Button type="button" variant={"outline"} className="bg-stone-100 border border-stone-200 rounded-md font-semibold">
+              <Button
+                type="button"
+                variant={"outline"}
+                className=" bg-(--nik-gray) hover:bg-secondary border border-transparent hover:border-stone-200  rounded-md font-semibold"
+              >
                 انصراف
               </Button>
             </div>
