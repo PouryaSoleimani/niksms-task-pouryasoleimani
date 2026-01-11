@@ -7,12 +7,15 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import ErrorField from "../../ErrorField";
-import { CheckCircle2Icon } from "lucide-react";
+import { CheckCircle2Icon, InfoIcon, XCircleIcon } from "lucide-react";
 
 const FormSchema = z.object({
   username: z.string("وارد کردن نام الزامی است").min(1, "وارد کردن نام الزامی می باشد"),
   name: z.string("وارد کردن نام 2 الزامی است").min(1, "وارد کردن نام 2 الزامی است"),
-  password: z.string("وارد کردن پسورد الزامی است").min(1, "وارد کردن رمز عبور الزامی می باشد"),
+  password: z
+    .string("وارد کردن پسورد الزامی است")
+    .min(8, "رمز عبور باید حداقل 8 حرف باشد")
+    .includes("!@#$%^&*()_+-=", "رمز عبور باید شامل کاراکتر های خاص مثل #$! باشد"),
 });
 
 export type FormTypes = z.infer<typeof FormSchema>;
@@ -38,6 +41,7 @@ const FormRightComponent = () => {
     methods.reset();
   }
 
+  console.info("ERRORS => ", methods.formState.errors.password?.type);
   return (
     <div className="min-w-full">
       <FormProvider {...methods}>
@@ -115,18 +119,50 @@ const FormRightComponent = () => {
           />
 
           {/* PASSWORD HINTS */}
-          <div className="flex flex-col gap-2 text-xs text-nik-foreground">
+          <div className="flex flex-col gap-2 text-xs text-stone-500">
             <p className="flex items-center gap-1">
-              <CheckCircle2Icon className="size-4" />
-              رمز عبور باید حداقل 8 رقم باشد
+              {!methods.formState.dirtyFields.password ? (
+                <div className={cn("flex items-center gap-1 text-stone-500")}>
+                  <InfoIcon className="size-4 translate-y-[1px]" />
+                  رمز عبور باید حداقل 8 رقم باشد
+                </div>
+              ) : methods.formState.dirtyFields.password && methods.formState.errors.password?.type === "too_small" ? (
+                <div className="flex items-center gap-1 text-destructive">
+                  <XCircleIcon className="size-4 translate-y-[1px]" />
+                  رمز عبور باید حداقل 8 رقم باشد
+                </div>
+              ) : (
+                Array(methods.formState.errors.password).length && (
+                  <div className={cn("flex items-center gap-1 text-nik-foreground")}>
+                    <CheckCircle2Icon className="size-4 translate-y-[1px]" />
+                    رمز عبور باید حداقل 8 رقم باشد
+                  </div>
+                )
+              )}
             </p>
             <p className="flex items-center gap-1">
               <CheckCircle2Icon className="size-4" />
-              رمز عبور باید حداقل 8 رقم باشد
+              رمز عبور باید شامل اعداد باشد .
             </p>
             <p className="flex items-center gap-1">
-              <CheckCircle2Icon className="size-4" />
-              رمز عبور باید حداقل 8 رقم باشد
+              {!methods.formState.dirtyFields.password ? (
+                <div className={cn("flex items-center gap-1 text-stone-500")}>
+                  <InfoIcon className="size-4 translate-y-[1px]" />
+                  رمز عبور باید شامل کاراکتر های خاص مثل !@#% باشد
+                </div>
+              ) : methods.formState.dirtyFields.password && methods.formState.errors.password?.type === "invalid_format" ? (
+                <div className="flex items-center gap-1 text-destructive">
+                  <XCircleIcon className="size-4 translate-y-[1px]" />
+                  رمز عبور باید شامل کاراکتر های خاص مثل !@#% باشد
+                </div>
+              ) : (
+                Array(methods.formState.errors.password).length && (
+                  <div className={cn("flex items-center gap-1 text-nik-foreground")}>
+                    <CheckCircle2Icon className="size-4 translate-y-[1px]" />
+                    رمز عبور باید شامل کاراکتر های خاص مثل !@#% باشد
+                  </div>
+                )
+              )}
             </p>
           </div>
 

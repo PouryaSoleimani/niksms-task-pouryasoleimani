@@ -12,7 +12,7 @@ export const Estedad = localFont({
 
 export const metadata: Metadata = {
   title: "NIK-SMS TASK | POURYA SOLEIMANI",
-  description: "",
+  description: "Nik-sms Task | Pourya Soleimani",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
