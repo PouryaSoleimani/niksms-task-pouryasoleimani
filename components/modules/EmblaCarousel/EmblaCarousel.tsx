@@ -8,6 +8,7 @@ import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
 import { NextButton, PrevButton, usePrevNextButtons } from "./EmblaCarouselArrowButtons";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import useIsMobile from "@/hooks/useIsMobile";
 
 type SlideItem = { id: number; src: string };
 
@@ -19,6 +20,9 @@ type PropType = {
 const EmblaCarousel: React.FC<PropType> = (props) => {
   const { slides, options } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay()]);
+  const isMobile = useIsMobile();
+
+  console.info("IS MOBLIE =>", isMobile);
 
   const onNavButtonClick = useCallback((emblaApi: EmblaCarouselType) => {
     const autoplay = emblaApi?.plugins()?.autoplay;

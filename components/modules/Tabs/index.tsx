@@ -65,7 +65,7 @@ const TabsComponent = () => {
                 <div id="TABS__VIDEO" className="relative lg:basis-1/2 inset-0 flex items-center justify-center">
                   <Sheet>
                     <SheetTrigger>
-                      <Image src={item.thumbnail} width={400} height={200} alt="thumbnail" className="mt-10 w-full h-full object-fill" />
+                      <Image src={item.thumbnail} width={400} height={200} alt="thumbnail" className="lg:mt-10 w-full h-full object-fill" />
                     </SheetTrigger>
                     <SheetContent showCloseButton={false} dir="rtl" side="bottom" className="border-t-6 h-84 border-t-[#dffca1] rounded-t-xl">
                       <SheetHeader className="inline-flex items-center justify-between ">
