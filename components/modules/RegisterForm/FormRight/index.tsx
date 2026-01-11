@@ -150,68 +150,68 @@ const FormRightComponent = () => {
 
           {/* PASSWORD HINTS */}
           <div className="flex flex-col gap-2 text-xs text-stone-500">
-            <p id="PASSWORD__MIN__LENGTH" className="flex items-center gap-1">
+            <div id="PASSWORD__MIN__LENGTH" className="flex items-center gap-1">
               {!methods.formState.dirtyFields.password ? (
-                <div className={cn("flex items-center gap-1 text-stone-500")}>
-                  <InfoIcon className="size-4 translate-y-[1px]" />
+                <div className={cn("flex items-start justify-center gap-1 text-stone-500 whitespace-nowrap tracking-tight sm:tracking-normal")}>
+                  <InfoIcon className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
                   رمز عبور باید حداقل 8 رقم باشد
                 </div>
               ) : methods.formState.dirtyFields.password && Array(methods.formState.errors.password).some((item) => item?.type === "too_small") ? (
-                <div className="flex items-center gap-1 text-destructive">
-                  <XCircleIcon className="size-4 translate-y-[1px]" />
+                <div className="flex items-center gap-1 text-destructive whitespace-nowrap tracking-tight sm:tracking-normal">
+                  <XCircleIcon className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
                   رمز عبور باید حداقل 8 رقم باشد
                 </div>
               ) : (
                 Array(methods.formState.errors.password).length && (
-                  <div className={cn("flex items-center gap-1 text-nik-foreground")}>
-                    <CheckCircle2Icon className="size-4 translate-y-[1px]" />
+                  <div className={cn("flex items-center gap-1 text-nik-foreground whitespace-nowrap tracking-tight sm:tracking-normal")}>
+                    <CheckCircle2Icon className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
                     رمز عبور باید حداقل 8 رقم باشد
                   </div>
                 )
               )}
-            </p>
-            <p id="PASSWORD__CONTAINS__NUMBERS" className="flex items-center gap-1">
+            </div>
+            <div id="PASSWORD__CONTAINS__NUMBERS" className="flex items-center gap-1">
               {!methods.formState.dirtyFields.password ? (
-                <div className={cn("flex items-center gap-1 text-stone-500")}>
-                  <InfoIcon className="size-4 translate-y-[1px]" />
+                <div className={cn("flex items-center gap-1 text-stone-500 whitespace-nowrap tracking-tight sm:tracking-normal")}>
+                  <InfoIcon className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
                   رمز عبور باید شامل اعداد باشد
                 </div>
               ) : methods.formState.dirtyFields.password &&
                 Array(methods.formState.errors.password).some((item) => item?.type === "invalid_format") ? (
-                <div className="flex items-center gap-1 text-destructive">
-                  <XCircleIcon className="size-4 translate-y-[1px]" />
+                <div className="flex items-center gap-1 text-destructive whitespace-nowrap tracking-tight sm:tracking-normal">
+                  <XCircleIcon className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
                   رمز عبور باید شامل اعداد باشد
                 </div>
               ) : (
                 Array(methods.formState.errors.password).every((item) => item?.type !== "invalid_format") && (
-                  <div className={cn("flex items-center gap-1 text-nik-foreground")}>
-                    <CheckCircle2Icon className="size-4 translate-y-[1px]" />
+                  <div className={cn("flex items-center gap-1 text-nik-foreground whitespace-nowrap tracking-tight sm:tracking-normal")}>
+                    <CheckCircle2Icon className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
                     رمز عبور باید شامل اعداد باشد
                   </div>
                 )
               )}
-            </p>
-            <p id="PASSWORD__CONTAINS__SYMBOLS" className="flex items-center gap-1">
+            </div>
+            <div id="PASSWORD__CONTAINS__SYMBOLS" className="flex items-center gap-1">
               {!methods.formState.dirtyFields.password ? (
-                <div className={cn("flex items-center gap-1 text-stone-500")}>
-                  <InfoIcon className="size-4 translate-y-[1px]" />
+                <div className={cn("flex items-center gap-1 text-stone-500 whitespace-nowrap tracking-tight sm:tracking-normal")}>
+                  <InfoIcon className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
                   رمز عبور باید شامل کاراکتر های خاص مثل !@#% باشد
                 </div>
               ) : methods.formState.dirtyFields.password &&
                 Array(methods.formState.errors.password).some((item) => item?.type === "invalid_format") ? (
-                <div className="flex items-center gap-1 text-destructive">
-                  <XCircleIcon className="size-4 translate-y-[1px]" />
+                <div className="flex items-center gap-1 text-destructive whitespace-nowrap tracking-tight sm:tracking-normal">
+                  <XCircleIcon className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
                   رمز عبور باید شامل کاراکتر های خاص مثل !@#% باشد
                 </div>
               ) : (
                 Array(methods.formState.errors.password).every((item) => item?.type !== "invalid_format") && (
-                  <div className={cn("flex items-center gap-1 text-nik-foreground")}>
-                    <CheckCircle2Icon className="size-4 translate-y-[1px]" />
+                  <div className={cn("flex items-center gap-1 text-nik-foreground whitespace-nowrap tracking-tight sm:tracking-normal")}>
+                    <CheckCircle2Icon className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
                     رمز عبور باید شامل کاراکتر های خاص مثل !@#% باشد
                   </div>
                 )
               )}
-            </p>
+            </div>
           </div>
 
           {/* BUTTONS WRAPPER */}
