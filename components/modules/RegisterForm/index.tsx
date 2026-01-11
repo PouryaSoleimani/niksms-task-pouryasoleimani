@@ -42,7 +42,7 @@ const RegisterFormComponent = () => {
           </div>
 
           {/* FORM__RIGHT */}
-          <div id="FORM__RIGHT" className="basis-7/12">
+          <div id="FORM__RIGHT" className="basis-7/12 w-full h-full p-8 lg:p-0 -translate-y-16 lg:-translate-y-0 flex items-center-safe justify-center">
             <FormRightComponent />
           </div>
         </div>

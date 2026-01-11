@@ -38,7 +38,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } = usePrevNextButtons(emblaApi, onNavButtonClick);
 
   return (
-    <section className={cn("embla relative inset-0 w-full embla_mask")} dir="rtl">
+    <section className={cn("embla relative inset-0 w-full", !isMobile && "embla_mask")} dir="rtl">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container mt-4 lg:mt-10 items-center justify-center-safe">
           {slides.map((slide: SlideItem) => (

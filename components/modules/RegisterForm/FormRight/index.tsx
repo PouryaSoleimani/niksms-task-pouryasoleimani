@@ -156,7 +156,7 @@ const FormRightComponent = () => {
                   <InfoIcon className="size-4 translate-y-[1px]" />
                   رمز عبور باید حداقل 8 رقم باشد
                 </div>
-              ) : methods.formState.dirtyFields.password && methods.formState.errors.password?.type === "too_small" ? (
+              ) : methods.formState.dirtyFields.password && Array(methods.formState.errors.password).some((item) => item?.type === "too_small") ? (
                 <div className="flex items-center gap-1 text-destructive">
                   <XCircleIcon className="size-4 translate-y-[1px]" />
                   رمز عبور باید حداقل 8 رقم باشد
@@ -215,7 +215,7 @@ const FormRightComponent = () => {
           </div>
 
           {/* BUTTONS WRAPPER */}
-          <div id="BUTTONS__WRAPPER" className="flex gap-3 py-5">
+          <div id="BUTTONS__WRAPPER" className="flex gap-3 lg:py-5">
             <Button
               disabled={!isValid || isSubmitting}
               aria-disabled={!isValid || isSubmitting}
