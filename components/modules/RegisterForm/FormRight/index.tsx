@@ -52,7 +52,7 @@ const FormRightComponent = () => {
     }
   }
 
-  console.info("ERRORS => ", Array(methods.formState.errors.password));
+  console.info("ERRORS => ", methods.formState.errors.password);
   return (
     <div className="min-w-full">
       <FormProvider {...methods}>
@@ -176,13 +176,14 @@ const FormRightComponent = () => {
                   <InfoIcon className="size-4 translate-y-[1px]" />
                   رمز عبور باید شامل اعداد باشد
                 </div>
-              ) : methods.formState.dirtyFields.password && Array(methods.formState.errors.password).some((item) => item?.type === "too_small") ? (
+              ) : methods.formState.dirtyFields.password &&
+                Array(methods.formState.errors.password).some((item) => item?.type === "invalid_format") ? (
                 <div className="flex items-center gap-1 text-destructive">
                   <XCircleIcon className="size-4 translate-y-[1px]" />
                   رمز عبور باید شامل اعداد باشد
                 </div>
               ) : (
-                Array(methods.formState.errors.password).length && (
+                Array(methods.formState.errors.password).every((item) => item?.type !== "invalid_format") && (
                   <div className={cn("flex items-center gap-1 text-nik-foreground")}>
                     <CheckCircle2Icon className="size-4 translate-y-[1px]" />
                     رمز عبور باید شامل اعداد باشد
