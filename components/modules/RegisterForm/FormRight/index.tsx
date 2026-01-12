@@ -24,6 +24,7 @@ export type FormTypes = z.infer<typeof FormSchema>;
 
 const FormRightComponent = () => {
   const [inputType, setInputType] = useState<"password" | "text">("password");
+
   //^ REACT__HOOK__FORM
   const methods = useForm<FormTypes>({
     mode: "onChange",
@@ -53,6 +54,7 @@ const FormRightComponent = () => {
   }
 
   console.info("ERRORS => ", methods.formState.errors.password);
+
   return (
     <div className="min-w-full">
       <FormProvider {...methods}>
