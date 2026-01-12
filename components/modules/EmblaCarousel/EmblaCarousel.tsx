@@ -41,7 +41,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         <div className="embla__container mt-4 lg:mt-10 items-center justify-center-safe">
           {slides.map((slide: SlideItem) => (
             <div
-              className="embla__slide flex-none basis-[80%] sm:basis-[70%] md:basis-[60%] lg:basis-[68%] h-46 min-[460px]:h-64 sm:h-72 lg:h-110 mx-auto lg:mx-2"
+              className="embla__slide flex-none basis-[80%] sm:basis-[70%] md:basis-[60%] lg:basis-[68%] h-46 min-[460px]:h-64 sm:h-72 lg:h-112 mx-auto lg:mx-2"
               key={slide.id}
             >
               <div className="embla__slide__number border-8 border-[#f2f2f0]">
@@ -52,7 +52,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         </div>
       </div>
 
-      {/*//^ CONTROLS */} 
+      {/*//^ CONTROLS */}
       <div className="overflow-hidden flex items-center-safe justify-center">
         <div className="embla__controls -translate-x-6.25 min-[460px]:-translate-x-4 scale-[0.4] mx-auto lg:scale-75 flex items-center justify-center-safe py-4 -translate-y-4 lg:-translate-y-2 lg:py-6">
           <div className="embla__buttons translate-x-6 flex items-center justify-center gap-2">

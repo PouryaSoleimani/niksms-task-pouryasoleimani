@@ -346,7 +346,7 @@ body {
 
 @media (width > 640px) {
   .embla {
-    --slide-size: 50%;
+    --slide-size: 65%;
     --slide-height: 25rem;
   }
   .embla-mask {
