@@ -1,7 +1,7 @@
 import GapComponent from "@/components/modules/Gap";
 import HeaderComponent from "@/components/modules/Header";
 import HeroComponent from "@/components/modules/Hero";
-import NumberSliderComponent from "@/components/modules/NumberSlider";
+import RangeSliderComponent from "@/components/modules/RangeSlider";
 import RegisterFormComponent from "@/components/modules/RegisterForm";
 import TabsComponent from "@/components/modules/Tabs";
 import TopSlider from "@/components/modules/TopSlider";
@@ -17,7 +17,7 @@ const HomePage = () => {
       <GapComponent />
       <RegisterFormComponent />
       <GapComponent />
-      <NumberSliderComponent />
+      <RangeSliderComponent />
       <GapComponent />
     </div>
   );

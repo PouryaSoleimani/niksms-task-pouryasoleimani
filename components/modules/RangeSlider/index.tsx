@@ -1,6 +1,6 @@
 import PartitionComponent from "../Partition";
 
-const NumberSliderComponent = () => {
+const RangeSliderComponent = () => {
   return (
     <PartitionComponent id="RANGE__SLIDER" faTitle="اسلایدر" enTitle="Slider">
       <></>
@@ -8,4 +8,4 @@ const NumberSliderComponent = () => {
   );
 };
 
-export default NumberSliderComponent;
+export default RangeSliderComponent;
