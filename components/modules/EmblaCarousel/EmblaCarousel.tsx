@@ -41,11 +41,11 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         <div className="embla__container mt-4 lg:mt-10 items-center justify-center-safe">
           {slides.map((slide: SlideItem) => (
             <div
-              className="embla__slide flex-none basis-[80%] sm:basis-[70%] md:basis-[60%] lg:basis-[68%] h-46 min-[460px]:h-64 sm:h-72 lg:h-112 mx-auto lg:mx-2"
+              className="embla__slide flex-none basis-[80%] sm:basis-[70%] md:basis-[60%] lg:basis-[68%] h-46 min-[460px]:h-64 sm:h-72 lg:h-110 mx-auto lg:mx-2"
               key={slide.id}
             >
-              <div className="embla__slide__number border-8 border-[#f2f2f0]">
-                <Image loading="eager" src={slide.src} fill suppressHydrationWarning priority alt={`${slide.id}-image`} />
+              <div className="embla__slide__number">
+                <Image loading="eager" src={slide.src} className="" fill suppressHydrationWarning priority alt={`${slide.id}-image`} />
               </div>
             </div>
           ))}
