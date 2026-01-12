@@ -146,6 +146,9 @@ body {
   background-image: radial-gradient(rgb(243, 243, 243) 2px, transparent 0);
   background-size: 30px 30px;
   background-position: -5px -5px;
+  scroll-behavior: smooth;
+  scroll-snap-type: mandatory;
+  scroll-snap-align: center;
 }
 
 .bg-nik-primary {

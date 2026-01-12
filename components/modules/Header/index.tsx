@@ -37,8 +37,8 @@ export default HeaderComponent;
 type MenuItem = { id: number; title: string; href: string };
 
 const menuItems: Array<MenuItem> = [
-  { id: 1, title: "اسلایدر", href: "/" },
-  { id: 2, title: "تب منو", href: "/" },
-  { id: 3, title: "فرم ثبت نام", href: "/" },
-  { id: 4, title: "رنج اسلایدر", href: "/" },
+  { id: 1, title: "اسلایدر", href: "#TOP__SLIDER" },
+  { id: 2, title: "تب منو", href: "#TAB__MENU" },
+  { id: 3, title: "فرم ثبت نام", href: "#REGISTER__FORM" },
+  { id: 4, title: "رنج اسلایدر", href: "#RANGE__SLIDER" },
 ];
