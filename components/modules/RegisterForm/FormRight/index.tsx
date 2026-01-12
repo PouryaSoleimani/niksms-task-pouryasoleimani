@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import ErrorField from "../../ErrorField";
 import { CheckCircle2Icon, Eye, EyeClosed, InfoIcon, XCircleIcon } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const FormSchema = z.object({
   username: z.string("وارد کردن نام الزامی است").min(1, "وارد کردن نام الزامی می باشد"),
@@ -53,7 +53,10 @@ const FormRightComponent = () => {
     }
   }
 
-  console.info("ERRORS => ", methods.formState.errors.password);
+  useEffect(() => {
+    console.info("ERRORS => ", methods.formState.errors.password);
+    return;
+  }, [methods.formState.errors]);
 
   return (
     <div className="min-w-full">

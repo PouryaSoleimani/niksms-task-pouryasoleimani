@@ -17,7 +17,7 @@ const HeaderComponent = () => {
           <span className={cn("middle bar-list", isExpanded && "bg-[#dffca1]!")}></span>
           <span className={cn("bottom bar-list", isExpanded && "bg-[#dffca1]!")}></span>
         </div>
-        <section className="menu-container">
+        <section className="menu-container bg-black">
           {menuItems.map((item: MenuItem) => (
             <Link key={item.id} href={item.href} className="menu-list flex items-center-safe gap-1.5">
               <Circle className={cn("size-4", isExpanded && "fill-[#dffca1]")} />
