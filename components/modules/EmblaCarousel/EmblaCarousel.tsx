@@ -45,7 +45,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
               key={slide.id}
             >
               <div className="embla__slide__number border-8 border-[#f2f2f0]">
-                <Image src={slide.src} fill suppressHydrationWarning priority alt={`${slide.id}-image`} />
+                <Image loading="eager" src={slide.src} fill suppressHydrationWarning priority alt={`${slide.id}-image`} />
               </div>
             </div>
           ))}
