@@ -7,7 +7,10 @@ const RegisterFormComponent = () => {
   return (
     <PartitionComponent id="REGISTER__FORM" faTitle="فرم ثبت نام" enTitle="Signup Form">
       {/* FORM LEFT */}
-      <div id="FORM__LEFT" className="bg-[#dffca1] py-6 lg:h-full w-full lg:basis-5/12 lg:rounded-l-2xl flex items-center-safe justify-center">
+      <div
+        id="FORM__LEFT"
+        className="bg-[#dffca1] rounded-t-[10px] lg:rounded-tr-none py-6 lg:h-full w-full lg:basis-5/12 lg:rounded-l-2xl flex items-center-safe justify-center"
+      >
         <h2 className="text-4xl lg:text-5xl flex flex-col gap-2.5 leading-12 tracking-wide text-nik-foreground font-extrabold lg:w-1/2 mx-auto">
           <span> Let&apos;s Make</span>
           <span className="flex gap-2 items-center">

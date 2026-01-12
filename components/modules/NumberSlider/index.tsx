@@ -2,7 +2,7 @@ import PartitionComponent from "../Partition";
 
 const NumberSliderComponent = () => {
   return (
-    <PartitionComponent id="RANGLE__SLIDER" faTitle="اسلایدر" enTitle="Slider">
+    <PartitionComponent id="RANGE__SLIDER" faTitle="اسلایدر" enTitle="Slider">
       <></>
     </PartitionComponent>
   );
