@@ -61,7 +61,7 @@ const FormRightComponent = () => {
   return (
     <div className="min-w-full">
       <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit(submitHandler)} dir="rtl" className="flex-0 lg:w-2/3 mx-auto flex flex-col gap-4">
+        <form onSubmit={methods.handleSubmit(submitHandler)} dir="rtl" className="flex-0 lg:w-2/3 mx-auto flex flex-col gap-6 lg:gap-4">
           <Controller
             control={methods.control}
             name="username"
@@ -220,7 +220,7 @@ const FormRightComponent = () => {
           </div>
 
           {/* BUTTONS WRAPPER */}
-          <div id="BUTTONS__WRAPPER" className="flex gap-3 lg:py-5">
+          <div id="BUTTONS__WRAPPER" className="flex gap-3 lg:py-5 ">
             <Button
               disabled={!isValid || isSubmitting}
               aria-disabled={!isValid || isSubmitting}
