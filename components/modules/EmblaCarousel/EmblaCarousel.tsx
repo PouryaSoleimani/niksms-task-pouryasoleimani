@@ -53,20 +53,22 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
       </div>
 
       {/*//^ CONTROLS */}
-      <div className="overflow-hidden flex items-center-safe justify-center">
-        <div className="embla__controls -translate-x-6.25 min-[460px]:-translate-x-4 scale-[0.4] mx-auto lg:scale-75 flex items-center justify-center-safe py-4 -translate-y-4 lg:-translate-y-2 lg:py-6">
-          <div className="embla__buttons translate-x-6 flex items-center justify-center gap-2">
-            <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
-            <div className="embla__dots px-6 py-5 rounded-full flex gap-4 bg-nik-primary">
-              {scrollSnaps.map((_: any, index: number) => (
-                <DotButton
-                  key={index}
-                  onClick={() => onDotButtonClick(index)}
-                  className={"embla__dot".concat(index === selectedIndex ? " embla__dot--selected" : "")}
-                />
-              ))}
+      <div className="overflow-hidden flex items-center justify-center">
+        <div className="flex items-center h-fit w-full justify-center">
+          <div className="embla__controls -translate-x-2.5 min-[460px]:-translate-x-4 scale-[0.4] mx-auto lg:scale-75 flex items-center justify-center-safe py-4 -translate-y-4 lg:-translate-y-2 lg:py-6">
+            <div className="embla__buttons translate-x-6 flex items-center justify-center gap-2">
+              <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
+              <div className="embla__dots px-6 py-5 rounded-full flex gap-4 bg-nik-primary">
+                {scrollSnaps.map((_: any, index: number) => (
+                  <DotButton
+                    key={index}
+                    onClick={() => onDotButtonClick(index)}
+                    className={"embla__dot".concat(index === selectedIndex ? " embla__dot--selected" : "")}
+                  />
+                ))}
+              </div>
+              <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
             </div>
-            <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
           </div>
         </div>
       </div>
