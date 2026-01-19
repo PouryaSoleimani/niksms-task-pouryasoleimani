@@ -129,10 +129,10 @@
     @apply bg-background text-foreground;
   }
   .bg-nik-primary {
-    @apply bg-[#dffca1];
+    @apply bg-[var(--nik-primary)];
   }
   .text-nik-foreground {
-    @apply text-[#094020];
+    @apply text-[var(--nik-foreground)];
   }
   .text-xxs {
     @apply text-[10px];
@@ -152,11 +152,11 @@ body {
 }
 
 .bg-nik-primary {
-  background-color: #dffca1;
+  background-color: var(--nik-primary);
 }
 
 .text-nik-foreground {
-  color: #094020;
+  color: var(--nik-foreground);
 }
 
 /*//^ HEADER MENU *********************************************************************************************/

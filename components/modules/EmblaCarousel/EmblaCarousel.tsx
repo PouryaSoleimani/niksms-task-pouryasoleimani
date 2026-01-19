@@ -54,7 +54,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
 
       {/*//^ CONTROLS */}
       <div className="overflow-hidden flex items-center justify-center">
-        <div className="flex items-center h-[65px] lg:h-full w-full justify-center">
+        <div className="flex items-center h-16.25 lg:h-full w-full justify-center">
           <div className="embla__controls -translate-x-2.5 min-[460px]:-translate-x-4 scale-[0.4] mx-auto lg:scale-75 flex items-center justify-center-safe py-4  lg:-translate-y-2 lg:py-6">
             <div className="embla__buttons translate-x-6 flex items-center justify-center gap-2">
               <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
