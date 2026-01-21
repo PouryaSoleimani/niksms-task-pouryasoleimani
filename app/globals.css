@@ -149,6 +149,8 @@ body {
   scroll-behavior: smooth;
   scroll-snap-type: mandatory;
   scroll-snap-align: center;
+  accent-color: var(--nik-primary);
+  caret-color: var(--nik-primary);
 }
 
 .bg-nik-primary {
