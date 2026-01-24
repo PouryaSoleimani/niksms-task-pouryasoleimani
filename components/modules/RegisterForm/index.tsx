@@ -21,7 +21,7 @@ const RegisterFormComponent = () => {
       </div>
 
       {/* SMILEY__MOBILE */}
-      <div id="SMILEY__MOBILE" className="block lg:hidden px-3 -translate-y-12 relative inset-0 z-10 py-3 rounded-full bg-[#dffca1]">
+      <div id="SMILEY__MOBILE" className="block  lg:hidden px-3 -translate-y-12 relative inset-0 z-10 py-3 rounded-full bg-[#dffca1]">
         <Image src={"/images/form/Smiley.png"} width={48} height={48} alt="smiley" />
       </div>
 
