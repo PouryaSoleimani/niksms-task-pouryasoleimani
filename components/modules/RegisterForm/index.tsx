@@ -9,7 +9,7 @@ const RegisterFormComponent = () => {
       {/* FORM LEFT */}
       <div
         id="FORM__LEFT"
-        className="bg-[#dffca1] rounded-t-[10px] lg:rounded-tr-none py-6 lg:h-full w-full lg:basis-5/12 lg:rounded-l-2xl flex items-center-safe justify-center"
+        className="bg-nik-primary rounded-t-[10px] lg:rounded-tr-none py-6 lg:h-full w-full lg:basis-5/12 lg:rounded-l-2xl flex items-center-safe justify-center"
       >
         <h2 className="text-4xl lg:text-5xl flex flex-col gap-2.5 leading-12 tracking-wide text-nik-foreground font-extrabold lg:w-1/2 mx-auto">
           <span> Let&apos;s Make</span>
@@ -21,12 +21,12 @@ const RegisterFormComponent = () => {
       </div>
 
       {/* SMILEY__MOBILE */}
-      <div id="SMILEY__MOBILE" className="block  lg:hidden px-3 -translate-y-12 relative inset-0 z-10 py-3 rounded-full bg-[#dffca1]">
+      <div id="SMILEY__MOBILE" className="block  lg:hidden px-3 -translate-y-12 relative inset-0 z-10 py-3 rounded-full bg-nik-primary">
         <Image src={"/images/form/Smiley.png"} width={48} height={48} alt="smiley" />
       </div>
 
       {/* SMILEY__DESKTOP */}
-      <div id="SMILEY__DESKTOP" className="hidden lg:block px-3 -translate-x-12 relative inset-0 z-10 py-3 rounded-full bg-[#dffca1]">
+      <div id="SMILEY__DESKTOP" className="hidden lg:block px-3 -translate-x-12 relative inset-0 z-10 py-3 rounded-full bg-nik-primary">
         <Image src={"/images/form/Smiley.png"} width={48} height={48} alt="smiley" />
       </div>
 

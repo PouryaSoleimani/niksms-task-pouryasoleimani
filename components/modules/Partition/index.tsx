@@ -16,7 +16,7 @@ const PartitionComponent = ({ enTitle, children, faTitle, id }: PartitionProps) 
           <span>{enTitle}</span>
           <span className="flex gap-2 items-center">
             {faTitle}
-            <span className="text-6xl -translate-y-2.5 h-8 text-[#dffca1]">·</span>
+            <span className="text-6xl -translate-y-2.5 h-8 text-nik-primary">·</span>
           </span>
         </div>
 

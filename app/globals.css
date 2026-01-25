@@ -3,38 +3,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-nik-primary: var(--nik-primary);
-  --color-nik-foreground: var(--nik-foreground);
-  --font-sans: var(--font-vazir);
-  --font-mono: var(--font-vazir);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
-}
-
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -73,43 +41,6 @@
   --nik-gray: #f2f2f0;
 }
 
-.dark {
-  --background: oklch(0.147 0.004 49.25);
-  --foreground: oklch(0.985 0.001 106.423);
-  --card: oklch(0.216 0.006 56.043);
-  --card-foreground: oklch(0.985 0.001 106.423);
-  --popover: oklch(0.216 0.006 56.043);
-  --popover-foreground: oklch(0.985 0.001 106.423);
-  --primary: oklch(0.923 0.003 48.717);
-  --primary-foreground: oklch(0.216 0.006 56.043);
-  --secondary: oklch(0.268 0.007 34.298);
-  --secondary-foreground: oklch(0.985 0.001 106.423);
-  --muted: oklch(0.268 0.007 34.298);
-  --muted-foreground: oklch(0.709 0.01 56.259);
-  --accent: oklch(0.268 0.007 34.298);
-  --accent-foreground: oklch(0.985 0.001 106.423);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.553 0.013 58.071);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.216 0.006 56.043);
-  --sidebar-foreground: oklch(0.985 0.001 106.423);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0.001 106.423);
-  --sidebar-accent: oklch(0.268 0.007 34.298);
-  --sidebar-accent-foreground: oklch(0.985 0.001 106.423);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.553 0.013 58.071);
-  --nik-primary: #dffca1;
-  --nik-foreground: #094020;
-  --nik-gray: #f2f2f0;
-}
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -126,6 +57,49 @@
   .text-xxs {
     @apply text-[10px];
   }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-nik-primary: var(--nik-primary);
+  --color-nik-foreground: var(--nik-foreground);
+
+  --font-sans: var(--font-vazir);
+  --font-mono: var(--font-vazir);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
 }
 
 body {
@@ -157,8 +131,8 @@ body {
 
 .main {
   font-weight: 600;
-  color: #094020;
-  background-color: #dffca1;
+  color: var(--nik-foreground);
+  background-color: var(--nik-primary);
   padding: 3px 15px;
   border-radius: 50px;
   display: flex;
@@ -185,7 +159,7 @@ body {
 .arrow::before {
   content: "";
   position: absolute;
-  background-color: #094020;
+  background-color: var(--nik-foreground);
   height: 100%;
   width: 2.5px;
   border-radius: 500px;
@@ -206,7 +180,7 @@ body {
 
 .menu-container {
   background-color: transparent;
-  color: #094020;
+  color: var(--nik-foreground);
   border-radius: 10px;
   position: absolute;
   width: 8rem;
@@ -237,8 +211,8 @@ body {
   position: relative;
   transform: translateY(30px);
   opacity: 0;
-  color: #094020;
-  background-color: #dffca1;
+  color: var(--nik-foreground);
+  background-color: var(--nik-primary);
 }
 
 .menu-list::after {
@@ -253,8 +227,8 @@ body {
 }
 
 .menu-list:hover {
-  background-color: #094020;
-  color: #dffca1;
+  background-color: var(--nik-foreground);
+  color: var(--nik-primary);
 }
 
 .inp:checked ~ .menu-container {
@@ -305,7 +279,7 @@ body {
   margin-top: 1.5px;
   transform: translateX(-1px);
   border-radius: 50px;
-  background-color: #094020;
+  background-color: var(--nik-foreground);
   transition: all 0.4s;
   position: relative;
 }
@@ -383,7 +357,7 @@ body {
   -webkit-tap-highlight-color: rgba(var(--text-high-contrast-rgb-value), 0.5);
   -webkit-appearance: none;
   appearance: none;
-  background-color: #dffca1;
+  background-color: var(--nik-primary);
   touch-action: manipulation;
   display: inline-flex;
   text-decoration: none;
@@ -442,8 +416,8 @@ body {
 }
 
 .embla__dot--selected:after {
-  background-color: #094020;
-  border: 1px solid #094020;
+  background-color: var(--nik-foreground);
+  border: 1px solid var(--nik-foreground);
   padding: 0;
 }
 

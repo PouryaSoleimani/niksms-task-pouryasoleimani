@@ -10,12 +10,12 @@ const TabsComponent = () => {
   return (
     <PartitionComponent enTitle="TabMenu" faTitle="تب منو" id="TAB__MENU">
       <Tabs dir="rtl" defaultValue="1" className="overflow-hidden w-full h-full p-2.5">
-        <TabsList className="TAB__LIST flex w-full lg:w-[92%] lg:mx-auto lg:mt-8 overflow-x-auto lg:overflow-x-hidden overflow-y-hidden whitespace-nowrap gap-1 shrink-0! bg-[#dffca1] border border-[#D5f39B] rounded-lg lg:rounded-2xl scrollbar-hide touch-pan-x scroll-smooth snap-x snap-mandatory">
+        <TabsList className="TAB__LIST flex w-full lg:w-[92%] lg:mx-auto lg:mt-8 overflow-x-auto lg:overflow-x-hidden overflow-y-hidden whitespace-nowrap gap-1 shrink-0! bg-nik-primary border border-[#D5f39B] rounded-lg lg:rounded-2xl scrollbar-hide touch-pan-x scroll-smooth snap-x snap-mandatory">
           {tabList.map((item: TabItem) => (
             <TabsTrigger
               key={item.id}
               value={item.id.toString()}
-              className="no-scrollbar flex-none shrink-0 scrollbar-hide flex items-center gap-1.5 text-[#094020] font-bold w-32 lg:w-[24%] lg:overflow-hidden h-9 lg:h-11 cursor-pointer transition-all duration-300 lg:rounded-xl"
+              className="no-scrollbar flex-none shrink-0 scrollbar-hide flex items-center gap-1.5 text-nik-foreground font-bold w-32 lg:w-[24%] lg:overflow-hidden h-9 lg:h-11 cursor-pointer transition-all duration-300 lg:rounded-xl"
             >
               <Image src={item.iconHeader} width={20} height={20} alt={item.title} />
               {item.title}
@@ -32,7 +32,7 @@ const TabsComponent = () => {
                 </div>
                 <h4>{item.title}</h4>
               </div>
-              <div className="font-normal text-[#094020] leading-8 lg:text-[14px]">
+              <div className="font-normal text-nik-foreground  leading-8 lg:text-[14px]">
                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در
                 ستون و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد
                 گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد.
@@ -52,7 +52,7 @@ const TabsComponent = () => {
                 <SheetTrigger>
                   <Image src={item.thumbnail} width={400} height={200} alt="thumbnail" className="lg:mt-10 w-full h-full object-fill" />
                 </SheetTrigger>
-                <SheetContent showCloseButton={false} dir="rtl" side="bottom" className="border-t-6 h-84 border-t-[#dffca1] rounded-t-xl">
+                <SheetContent showCloseButton={false} dir="rtl" side="bottom" className="border-t-6 h-84 border-t-nik-primary rounded-t-xl">
                   <SheetHeader className="inline-flex items-center justify-between ">
                     <SheetTitle className="font-semibold text-md">پاپ آپ ویدیو</SheetTitle>
                     <SheetClose asChild>
