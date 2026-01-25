@@ -185,7 +185,7 @@ const FormRightComponent = () => {
                   <InfoIcon className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
                   رمز عبور باید حداقل 8 رقم باشد
                 </div>
-              ) : methods.formState.dirtyFields.password && Array(methods.formState.errors.password).some((item) => item?.type === "too_small") ? (
+              ) : methods.formState.dirtyFields.password && Array(methods.formState.errors.password).some((item) => item?.message === "رمز عبور باید حداقل 8 کاراکتر باشد") ? (
                 <div className="text-destructive whitespace-nowrap sm:tracking-normal flex items-center gap-1 tracking-tight">
                   <XCircleIcon className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
                   رمز عبور باید حداقل 8 رقم باشد
@@ -200,7 +200,7 @@ const FormRightComponent = () => {
               )}
             </div>
             <div id="PASSWORD__CONTAINS__NUMBERS" className="flex items-center gap-1">
-              {!Array(methods.formState.dirtyFields.password) ? (
+              {!methods.formState.dirtyFields.password ? (
                 <div className={cn("flex items-center gap-1 text-stone-500 whitespace-nowrap tracking-tight sm:tracking-normal")}>
                   <InfoIcon className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
                   رمز عبور باید شامل اعداد باشد
