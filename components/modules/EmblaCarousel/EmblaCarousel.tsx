@@ -45,7 +45,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
               key={slide.id}
             >
               <div className="embla__slide__number">
-                <Image loading="eager" src={slide.src} className="" fill suppressHydrationWarning priority alt={`${slide.id}-image`} />
+                <Image loading="eager" src={slide.src} className="aspect-video" fill suppressHydrationWarning priority alt={`${slide.id}-image`} />
               </div>
             </div>
           ))}
@@ -54,8 +54,8 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
 
       {/*//^ CONTROLS */}
       <div className="overflow-hidden flex items-center justify-center">
-        <div className="flex items-center h-[32px] lg:h-full w-full justify-center">
-          <div className="embla__controls -translate-x-2.5 min-[460px]:-translate-x-4 scale-[0.4] mx-auto lg:scale-75 flex items-center justify-center-safe py-4  lg:-translate-y-2 lg:py-6">
+        <div className="flex items-center h-[35px] lg:h-full w-full justify-center">
+          <div className="embla__controls -translate-x-2.5 mt-0.5 min-[460px]:-translate-x-4 scale-[0.4] mx-auto lg:scale-75 flex items-center justify-center-safe py-4  lg:-translate-y-2 lg:py-6">
             <div className="embla__buttons translate-x-6 flex items-center justify-center gap-2">
               <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
               <div className="embla__dots px-6 py-4 rounded-full flex gap-4 bg-nik-primary">

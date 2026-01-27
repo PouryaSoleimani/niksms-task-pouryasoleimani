@@ -309,7 +309,7 @@ body {
   max-width: 100vw;
   --slide-height: 22rem;
   --slide-spacing: 1rem;
-  --slide-size: 85%;
+  --slide-size: 89%;
 }
 
 @media (width > 640px) {

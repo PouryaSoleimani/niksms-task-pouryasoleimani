@@ -9,12 +9,12 @@ interface PartitionProps {
 }
 const PartitionComponent = ({ enTitle, children, faTitle, id, classNames }: PartitionProps) => {
   return (
-    <div id={id} className="h-auto lg:h-[627px] border-red-500! w-full mx-auto bg-[#f2f2f0]  lg:rounded-[30px] p-3.5 lg:p-6 flex items-center justify-center">
+    <div id={id} className="h-[329px] min-[460px]:h-[420px] sm:h-[480px] lg:h-[627px] w-full mx-auto bg-[#f2f2f0]  lg:rounded-[30px] p-3.5 lg:p-6 flex items-center justify-center">
       <div className="bg-[#f2f2f0] overflow-hidden rounded-lg flex flex-col w-full justify-start  h-full gap-2.5 lg:gap-4">
         {/* TOP SECTION */}
         <div
           id="TOP"
-          className={cn("w-full font-bold  text-md lg:text-xl text-nik-foreground h-fit p-3 lg:p-5 rounded-lg lg:rounded-[16px] bg-white flex items-center-safe justify-between", classNames?.top)}
+          className={cn("w-full  border font-bold text-md lg:text-xl text-nik-foreground  px-3 py-2 lg:p-5 rounded-lg lg:rounded-[16px] bg-white flex items-center-safe justify-between", classNames?.top)}
         >
           <span>{enTitle}</span>
           <span className="flex gap-2 items-center">
