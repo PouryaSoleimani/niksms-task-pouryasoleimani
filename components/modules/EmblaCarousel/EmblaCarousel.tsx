@@ -41,11 +41,11 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         <div className="embla__container mt-4 lg:mt-10 items-center justify-center-safe">
           {slides.map((slide: SlideItem) => (
             <div
-              className="embla__slide flex-none basis-[80%] sm:basis-[70%] md:basis-[60%] lg:basis-[68%] h-46 min-[460px]:h-64 sm:h-72 lg:h-[349px] mx-auto lg:mx-2"
+              className="embla__slide flex-none basis-[78%] sm:basis-[70%] md:basis-[60%] lg:basis-[80%] h-46 min-[460px]:h-64 sm:h-80 lg:h-[365px] mx-auto lg:mx-1"
               key={slide.id}
             >
               <div className="embla__slide__number">
-                <Image loading="eager" src={slide.src} className="aspect-video" fill suppressHydrationWarning priority alt={`${slide.id}-image`} />
+                <Image loading="eager" src={slide.src} fill suppressHydrationWarning priority alt={`${slide.id}-image`} />
               </div>
             </div>
           ))}
@@ -53,23 +53,19 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
       </div>
 
       {/*//^ CONTROLS */}
-      <div className="overflow-hidden flex items-center justify-center">
-        <div className="flex items-center h-[35px] lg:h-full w-full justify-center">
-          <div className="embla__controls -translate-x-2.5 mt-0.5 min-[460px]:-translate-x-4 scale-[0.4] mx-auto lg:scale-75 flex items-center justify-center-safe py-4  lg:-translate-y-2 lg:py-6">
-            <div className="embla__buttons translate-x-6 flex items-center justify-center gap-2">
-              <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
-              <div className="embla__dots px-6 py-4 rounded-full flex gap-4 bg-nik-primary">
-                {scrollSnaps.map((_: any, index: number) => (
-                  <DotButton
-                    key={index}
-                    onClick={() => onDotButtonClick(index)}
-                    className={"embla__dot".concat(index === selectedIndex ? " embla__dot--selected" : "")}
-                  />
-                ))}
-              </div>
-              <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
-            </div>
+      <div className="scale-[0.4] min-[460px]:scale-50  -translate-y-2 min-[460px]:translate-y-1 sm:translate-y-1 md:-translate-y-1 lg:translate-y-1.5 sm:scale-[0.6] lg:scale-70 flex items-center-safe justify-center">
+        <div className="flex items-center justify-center gap-2">
+          <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
+          <div className="embla__dots px-6 py-4 rounded-full flex gap-4 bg-nik-primary">
+            {scrollSnaps.map((_: any, index: number) => (
+              <DotButton
+                key={index}
+                onClick={() => onDotButtonClick(index)}
+                className={"embla__dot".concat(index === selectedIndex ? " embla__dot--selected" : "")}
+              />
+            ))}
           </div>
+          <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
         </div>
       </div>
     </section>
