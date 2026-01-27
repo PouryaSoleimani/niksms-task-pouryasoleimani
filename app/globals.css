@@ -124,6 +124,10 @@ body {
   background-color: var(--nik-primary);
 }
 
+.bg-nik-foreground {
+  background-color: var(--color-nik-foreground);
+}
+
 .text-nik-foreground {
   color: var(--nik-foreground);
 }
@@ -136,7 +140,6 @@ body {
 .main {
   font-weight: 600;
   color: var(--nik-foreground);
-  background-color: var(--nik-primary);
   padding: 3px 15px;
   border-radius: 50px;
   display: flex;
@@ -163,7 +166,7 @@ body {
 .arrow::before {
   content: "";
   position: absolute;
-  background-color: var(--nik-foreground);
+  background-color: currentColor;
   height: 100%;
   width: 2.5px;
   border-radius: 500px;
@@ -269,7 +272,7 @@ body {
 
 .bar {
   display: flex;
-  height: 50%;
+  height: 58%;
   width: 19px;
   flex-direction: column;
   gap: 3px;

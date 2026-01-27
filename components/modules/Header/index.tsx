@@ -7,15 +7,17 @@ import { Circle } from "lucide-react";
 const HeaderComponent = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
+  console.info('IS EXPANEDED', isExpanded)
+
   return (
     <div className="items-center-safe relative top-0 left-0 flex justify-between px-4 lg:px-0">
-      <label className={cn("main border border-transparent hover:border-nik-foreground ", isExpanded && "bg-nik-foreground text-nik-primary")}>
+      <label className={cn("main bg-nik-primary border border-transparent hover:border-nik-foreground ", isExpanded == true && "bg-nik-foreground! text-nik-primary!")}>
         <p className="lg:block hidden text-sm">منو تسک ها</p>
         <input className="inp" type="checkbox" checked={!isExpanded} onChange={() => setIsExpanded(!isExpanded)} />
         <div className={cn("bar", isExpanded && "expanded max-[820px]:-translate-x-1")}>
-          <span className={cn("top bar-list", isExpanded && "bg-nik-primary")}></span>
-          <span className={cn("middle bar-list", isExpanded && "bg-nik-primary")}></span>
-          <span className={cn("bottom bar-list", isExpanded && "bg-nik-primary")}></span>
+          <span className={cn("top bar-list", isExpanded && "bg-nik-primary!")}></span>
+          <span className={cn("middle bar-list", isExpanded && "bg-nik-primary!")}></span>
+          <span className={cn("bottom bar-list", isExpanded && "bg-nik-primary!")}></span>
         </div>
         <section className="menu-container bg-black">
           {menuItems.map((item: MenuItem) => (
