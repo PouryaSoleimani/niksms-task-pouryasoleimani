@@ -7,17 +7,18 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import ErrorField from "../../ErrorField";
-import { CheckCircle2Icon, Eye, EyeClosed, InfoIcon, XCircleIcon } from "lucide-react";
+import { CheckCircle2Icon, Eye, EyeClosed, Minus, XCircleIcon } from "lucide-react";
 import { useEffect, useState } from "react";
+import UserPlus from "@/components/icons/UserPlus";
 
 const FormSchema = z.object({
   username: z.string("وارد کردن نام الزامی است").min(1, "وارد کردن نام الزامی می باشد"),
   name: z.string("وارد کردن نام 2 الزامی است").min(1, "وارد کردن نام 2 الزامی است"),
   password: z
     .string()
-    .min(8, "رمز عبور باید حداقل 8 کاراکتر باشد")
-    .regex(/[0-9]/, "رمز عبور باید شامل عدد باشد")
-    .regex(/[!$%^&*]/, "رمز عبور باید شامل کاراکتر خاص مثل !$%^&* باشد"),
+    .min(8, "حداقل باید 8 حرف باشد")
+    .regex(/[0-9]/, "باید شامل عدد باشد")
+    .regex(/[!$%^&*]/, "باید شامل حروف خاص مثل $-#%  باشد"),
   // .regex(/^\d+$/, "رمز عبور باید شامل اعداد باشد"),
 });
 
@@ -182,19 +183,19 @@ const FormRightComponent = () => {
             <div id="PASSWORD__MIN__LENGTH" className="flex items-center gap-1">
               {!methods.formState.dirtyFields.password ? (
                 <div className={cn("flex items-start justify-center gap-1 text-stone-500 whitespace-nowrap tracking-tight sm:tracking-normal")}>
-                  <InfoIcon className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
-                  رمز عبور باید حداقل 8 رقم باشد
+                  <Minus className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
+                  حداقل باید 8 حرف باشد
                 </div>
               ) : methods.formState.dirtyFields.password && Array(methods.formState.errors.password).some((item) => item?.message === "رمز عبور باید حداقل 8 کاراکتر باشد") ? (
                 <div className="text-destructive whitespace-nowrap sm:tracking-normal flex items-center gap-1 tracking-tight">
                   <XCircleIcon className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
-                  رمز عبور باید حداقل 8 رقم باشد
+                  حداقل باید 8 حرف باشد
                 </div>
               ) : (
                 Array(methods.formState.errors.password).length && (
                   <div className={cn("flex items-center gap-1 text-nik-foreground whitespace-nowrap tracking-tight sm:tracking-normal")}>
                     <CheckCircle2Icon className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
-                    رمز عبور باید حداقل 8 رقم باشد
+                    حداقل باید 8 حرف باشد
                   </div>
                 )
               )}
@@ -202,17 +203,17 @@ const FormRightComponent = () => {
             <div id="PASSWORD__CONTAINS__NUMBERS" className="flex items-center gap-1">
               {!methods.formState.dirtyFields.password ? (
                 <div className={cn("flex items-center gap-1 text-stone-500 whitespace-nowrap tracking-tight sm:tracking-normal")}>
-                  <InfoIcon className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
+                  <Minus className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
                   رمز عبور باید شامل اعداد باشد
                 </div>
               ) : methods.formState.dirtyFields.password &&
-                Array(methods.formState.errors.password).some((item) => item?.message === "رمز عبور باید شامل عدد باشد") ? (
+                Array(methods.formState.errors.password).some((item) => item?.message === "باید شامل عدد باشد") ? (
                 <div className="text-destructive whitespace-nowrap sm:tracking-normal flex items-center gap-1 tracking-tight">
                   <XCircleIcon className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
                   رمز عبور باید شامل اعداد باشد
                 </div>
               ) : (
-                Array(methods.formState.errors.password).every((item) => item?.message !== "رمز عبور باید شامل عدد باشد") && (
+                Array(methods.formState.errors.password).every((item) => item?.message !== "باید شامل عدد باشد") && (
                   <div className={cn("flex items-center gap-1 text-nik-foreground whitespace-nowrap tracking-tight sm:tracking-normal")}>
                     <CheckCircle2Icon className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
                     رمز عبور باید شامل اعداد باشد
@@ -223,20 +224,20 @@ const FormRightComponent = () => {
             <div id="PASSWORD__CONTAINS__SYMBOLS" className="flex items-center gap-1">
               {!methods.formState.dirtyFields.password ? (
                 <div className={cn("flex items-center gap-1 text-stone-500 whitespace-nowrap tracking-tight sm:tracking-normal")}>
-                  <InfoIcon className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
-                  رمز عبور باید شامل کاراکتر های خاص مثل !@#% باشد
+                  <Minus className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
+                  شامل حروف خاص مثل : ؟-#% باشد
                 </div>
               ) : methods.formState.dirtyFields.password &&
-                Array(methods.formState.errors.password).some((item) => item?.message === "رمز عبور باید شامل کاراکتر خاص مثل !$%^&* باشد") ? (
+                Array(methods.formState.errors.password).some((item) => item?.message === "  باید شامل حروف خاص مثل $-#%  باشد") ? (
                 <div className="text-destructive whitespace-nowrap sm:tracking-normal flex items-center gap-1 tracking-tight">
                   <XCircleIcon className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
-                  رمز عبور باید شامل کاراکتر های خاص مثل !@#% باشد
+                  شامل حروف خاص مثل : ؟-#% باشد
                 </div>
               ) : (
-                Array(methods.formState.errors.password).every((item) => item?.message !== "رمز عبور باید شامل کاراکتر خاص مثل !$%^&* باشد") && (
+                Array(methods.formState.errors.password).every((item) => item?.message !== "  باید شامل حروف خاص مثل $-#%  باشد") && (
                   <div className={cn("flex items-center gap-1 text-nik-foreground whitespace-nowrap tracking-tight sm:tracking-normal")}>
                     <CheckCircle2Icon className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
-                    رمز عبور باید شامل کاراکتر های خاص مثل !@#% باشد
+                    شامل حروف خاص مثل : ؟-#% باشد
                   </div>
                 )
               )}
@@ -249,16 +250,17 @@ const FormRightComponent = () => {
               disabled={!isValid || isSubmitting}
               aria-disabled={!isValid || isSubmitting}
               variant={"focused"}
-              className="w-44 text-sm font-semibold rounded-md"
+              className="w-[268px] text-sm rounded-md text-white flex items-center-safe gap-2"
               type="submit"
             >
-              ثبت اطلاعات
+              <UserPlus className="size-[20px]" />
+              ثبت نام
             </Button>
             <div>
               <Button
                 type="button"
                 variant={"outline"}
-                className=" bg-(--nik-gray) text-sm text-stone-500 hover:bg-secondary border border-transparent hover:border-stone-200  rounded-md font-semibold"
+                className="border-nik-gray text-sm text-stone-500 hover:bg-secondary border  hover:border-stone-200  rounded-md "
               >
                 انصراف
               </Button>

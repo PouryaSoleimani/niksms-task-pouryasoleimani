@@ -13,12 +13,16 @@ const RegisterFormComponent = () => {
         id="FORM__LEFT"
         className="bg-nik-primary rounded-t-[10px] lg:rounded-tr-none py-6 lg:h-full w-full lg:basis-5/12 lg:rounded-l-2xl flex items-center-safe justify-center"
       >
-        <h2 className={cn("text-4xl lg:text-5xl flex flex-col gap-2.5 leading-12 tracking-wide text-nik-foreground font-extrabold lg:w-1/2 mx-auto", poppins.className)}>
-          <span> Let&apos;s Make</span>
+        <h2 className={cn("text-[50px] w-full lg:basis-10/12 lg:text-5xl flex flex-col leading-[64px] border-4 h-[256px] text-nik-foreground font-bold", poppins.className)}>
+          <span className="flex items-center"> Let <span className="italic m-0 -translate-x-1.5 translate-y-1">{"'"}</span>s Make</span>
           <span className="flex items-center gap-2">
-            a<span className="bg-white rounded-lg w-52.75 h-15 flex items-center-safe px-2">Better</span>
+            a<span className="bg-white rounded-lg w-52.75 h-15 flex items-center-safe justify-center px-2">Better</span>
           </span>
-          <span>World Together</span>
+          <span>World</span>
+          <div className="relative inset-0">
+            <span>together</span>
+            <Image src={'/images/form/Form_left_after.png'} alt="after_image" width={20} height={20} className="w-[7.46px] h-[9.02px] absolute bottom-10 right-27" />
+          </div>
         </h2>
       </div>
 

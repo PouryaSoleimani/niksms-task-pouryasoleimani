@@ -93,6 +93,8 @@
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
 
+  --color-nik-gray: var(--nik-gray);
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -312,7 +314,7 @@ body {
 
 @media (width > 640px) {
   .embla {
-    --slide-size: 65%;
+    --slide-size: 50%;
     --slide-height: 25rem;
   }
   .embla-mask {
@@ -368,8 +370,8 @@ body {
   padding: 0;
   margin: 0;
   box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
-  width: 3.6rem;
-  height: 3.6rem;
+  width: 3.5rem;
+  height: 3.5rem;
   z-index: 1;
   border-radius: 50%;
   color: var(--text-body);
@@ -399,8 +401,8 @@ body {
   border: 0;
   padding: 0;
   margin: 0;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 18px;
+  height: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
