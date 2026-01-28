@@ -39,6 +39,7 @@
   --nik-primary: #dffca1;
   --nik-foreground: #094020;
   --nik-gray: #f2f2f0;
+  --breakpoint-xs: 460px;
 }
 
 @layer base {
@@ -48,14 +49,21 @@
   body {
     @apply bg-background text-foreground;
   }
-  .bg-nik-primary {
-    @apply bg-[var(--nik-primary)];
-  }
-  .text-nik-foreground {
-    @apply text-[var(--nik-foreground)];
-  }
+}
+
+@layer utilities {
   .text-xxs {
     @apply text-[10px];
+  }
+  .bg-nik-primary {
+    background-color: var(--nik-primary);
+  }
+
+  .bg-nik-foreground {
+    background-color: var(--color-nik-foreground);
+  }
+  .text-nik-foreground {
+    color: var(--nik-foreground);
   }
 }
 
@@ -103,7 +111,9 @@
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
 
-  --font-poppins: "Poppins";
+  --font-poppins: Poppins, sans-serif;
+
+  --text-md: 16px --breakpoint-xs: 460px;
 }
 
 body {
@@ -118,18 +128,6 @@ body {
   scroll-snap-align: center;
   accent-color: var(--nik-primary);
   caret-color: var(--nik-primary);
-}
-
-.bg-nik-primary {
-  background-color: var(--nik-primary);
-}
-
-.bg-nik-foreground {
-  background-color: var(--color-nik-foreground);
-}
-
-.text-nik-foreground {
-  color: var(--nik-foreground);
 }
 
 /*//^ HEADER MENU *********************************************************************************************/
@@ -248,19 +246,27 @@ body {
 }
 
 .inp:not(:checked) ~ .menu-container .menu-list:nth-child(1) {
-  transition: transform 0.4s var(--delay), opacity 0.4s var(--delay);
+  transition:
+    transform 0.4s var(--delay),
+    opacity 0.4s var(--delay);
 }
 
 .inp:not(:checked) ~ .menu-container .menu-list:nth-child(2) {
-  transition: transform 0.4s calc(var(--delay) + (var(--trdelay) * 1)), opacity 0.4s calc(var(--delay) + (var(--trdelay) * 1));
+  transition:
+    transform 0.4s calc(var(--delay) + (var(--trdelay) * 1)),
+    opacity 0.4s calc(var(--delay) + (var(--trdelay) * 1));
 }
 
 .inp:not(:checked) ~ .menu-container .menu-list:nth-child(3) {
-  transition: transform 0.4s calc(var(--delay) + (var(--trdelay) * 2)), opacity 0.4s calc(var(--delay) + (var(--trdelay) * 2));
+  transition:
+    transform 0.4s calc(var(--delay) + (var(--trdelay) * 2)),
+    opacity 0.4s calc(var(--delay) + (var(--trdelay) * 2));
 }
 
 .inp:not(:checked) ~ .menu-container .menu-list:nth-child(4) {
-  transition: transform 0.4s calc(var(--delay) + (var(--trdelay) * 3)), opacity 0.4s calc(var(--delay) + (var(--trdelay) * 3));
+  transition:
+    transform 0.4s calc(var(--delay) + (var(--trdelay) * 3)),
+    opacity 0.4s calc(var(--delay) + (var(--trdelay) * 3));
 }
 
 .bar-inp {
