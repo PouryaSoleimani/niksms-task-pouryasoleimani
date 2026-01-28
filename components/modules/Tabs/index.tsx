@@ -53,7 +53,7 @@ const TabsComponent = () => {
               <div className="lg:mt-10">
                 <Button
                   variant={"focused"}
-                  className="rounded-lg group mt-3.5 flex items-center text-[12px] justify-between text-sm w-35.75 lg:w-43.25 h-10 lg:h-11"
+                  className="rounded-lg group mt-5 flex items-center text-[12px] md:text-[14px] justify-between text-sm w-35.75 md:w-40 lg:w-43.25 h-10 lg:h-11"
                 >
                   <p className="text-white! font-medium text-[12px] lg:text-[14px]"> اطلاعات بیشتر </p>
                   <ArrowLeft className="size-5.5 group-hover:-translate-x-1 transition-all duration-300" />
@@ -69,7 +69,7 @@ const TabsComponent = () => {
                     width={isXS ? 400 : 600}
                     height={isXS ? 200 : 400}
                     alt="thumbnail"
-                    className="mt-4 xs:mt-2 lg:mt-5 rounded-t-[17px] h-full"
+                    className="mt-4 xs:mt-2 lg:mt-0 rounded-t-[17px] h-full"
                   />
                 </SheetTrigger>
                 <SheetContent showCloseButton={false} dir="rtl" side="bottom" className="border-t-6 h-84 border-t-nik-primary rounded-t-xl">

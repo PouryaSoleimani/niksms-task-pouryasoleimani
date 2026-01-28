@@ -7,8 +7,6 @@ import { Circle } from "lucide-react";
 const HeaderComponent = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  console.info('IS EXPANEDED', isExpanded)
-
   return (
     <div className="items-center-safe relative top-0 left-0 flex justify-between px-4 lg:px-0">
       <label className={cn("main bg-nik-primary border border-transparent hover:border-nik-foreground ", isExpanded == true && "bg-nik-foreground! text-nik-primary!")}>
