@@ -19,7 +19,7 @@ const TopSlider = () => {
   ];
 
   return (
-    <PartitionComponent enTitle="Slider" faTitle="اسلایدر" id="TOP__SLIDER">
+    <PartitionComponent enTitle="Slider" faTitle="اسلایدر" id="TOP__SLIDER" classNames={{ wrapper: 'h-[329px] min-[460px]:h-[420px] sm:h-[480px] lg:h-[627px]', bottom: "h-[504px]" }}>
       <EmblaCarousel slides={SLIDES} options={OPTIONS} />
     </PartitionComponent>
   );

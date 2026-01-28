@@ -1,3 +1,4 @@
+'use client'
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArrowLeft, X } from "lucide-react";
@@ -5,10 +6,12 @@ import Image from "next/image";
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTrigger } from "@/components/animate-ui/components/radix/sheet";
 import { SheetTitle } from "@/components/animate-ui/primitives/radix/sheet";
 import PartitionComponent from "../Partition";
+import useIsMobile from "@/hooks/useIsMobile";
 
 const TabsComponent = () => {
+  const isMobile = useIsMobile()
   return (
-    <PartitionComponent enTitle="TabMenu" faTitle="تب منو" id="TAB__MENU">
+    <PartitionComponent enTitle="TabMenu" faTitle="تب منو" id="TAB__MENU" classNames={{ wrapper: 'h-[634px]', top: 'h-[45px]' }}>
       <Tabs dir="rtl" defaultValue="1" className="overflow-hidden w-full h-full p-2.5">
         <TabsList className="TAB__LIST flex w-full lg:w-[92%] lg:mx-auto lg:mt-8 overflow-x-auto lg:overflow-x-hidden overflow-y-hidden whitespace-nowrap gap-1 shrink-0! bg-nik-primary border border-[#D5f39B] rounded-lg lg:rounded-2xl scrollbar-hide touch-pan-x scroll-smooth snap-x snap-mandatory">
           {tabList.map((item: TabItem) => (
@@ -24,18 +27,17 @@ const TabsComponent = () => {
         </TabsList>
 
         {tabList.map((item: TabItem) => (
-          <TabsContent key={item.id} value={item.id.toString()} className="p-1.5 mt-4 lg:px-16 flex flex-col lg:flex-row gap-3 overflow-hidden">
-            <div className="p-2 lg:flex lg:flex-col lg:justify-start lg:mt-10 lg:gap-5 lg:basis-1/2">
-              <div className="flex items-center-safe font-bold gap-2.5 text-lg">
+          <TabsContent key={item.id} value={item.id.toString()} className=" mt-4 lg:px-16 flex flex-col lg:flex-row gap-3 overflow-hidden">
+            {/* TOP SECTION */}
+            <div className=" border h-1/2 lg:flex lg:flex-col lg:justify-start lg:mt-10 lg:gap-5 lg:basis-1/2">
+              <div className="flex items-center-safe font-bold gap-3 text-lg">
                 <div className="bg-[#f2f2f0] p-1 rounded-md border border-[#E9EBE8]">
                   <Image src={item.iconTitle} width={20} height={20} alt={item.title} />
                 </div>
-                <h4>{item.title}</h4>
+                <h4 className="text-sm font-bold text-nik-foreground">{item.title}</h4>
               </div>
-              <div className="font-normal text-nik-foreground  leading-8 lg:text-[14px]">
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در
-                ستون و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد
-                گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد.
+              <div className="font-normal mt-2 text-justify text-nik-foreground leading-6 text-xs lg:leading-8 lg:text-[14px]">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد.
               </div>
               <div className="lg:mt-12">
                 <Button
@@ -47,10 +49,11 @@ const TabsComponent = () => {
                 </Button>
               </div>
             </div>
-            <div id="TABS__VIDEO" className="relative lg:basis-1/2 inset-0 flex items-center justify-center">
+            {/*//^ BOTTOM SECTION */}
+            <div id="TABS__VIDEO" className="relative basis-1/3 h-[215px] lg:basis-1/2 inset-0 flex items-center justify-center">
               <Sheet>
                 <SheetTrigger>
-                  <Image src={item.thumbnail} width={400} height={200} alt="thumbnail" className="lg:mt-10 w-full h-full object-fill" />
+                  <Image src={isMobile == true && item.mobileThumbnail ? item.mobileThumbnail : item.thumbnail} width={400} height={200} alt="thumbnail" className="lg:mt-10" />
                 </SheetTrigger>
                 <SheetContent showCloseButton={false} dir="rtl" side="bottom" className="border-t-6 h-84 border-t-nik-primary rounded-t-xl">
                   <SheetHeader className="inline-flex items-center justify-between ">
@@ -76,7 +79,7 @@ const TabsComponent = () => {
 
 export default TabsComponent;
 
-type TabItem = { id: number; title: string; iconHeader: string; iconTitle: string; thumbnail: string };
+type TabItem = { id: number; title: string; iconHeader: string; iconTitle: string; mobileThumbnail?: string, thumbnail: string };
 
 const tabList: TabItem[] = [
   {
@@ -84,6 +87,7 @@ const tabList: TabItem[] = [
     title: "منو شماره یک",
     iconHeader: "/images/tabs/header/1.png",
     iconTitle: "/images/tabs/header/11.png",
+    mobileThumbnail: '/images/tabs/Thumbnail_1_Mobile.png',
     thumbnail: "/images/tabs/Thumbnail_1.png",
   },
   {
