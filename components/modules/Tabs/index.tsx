@@ -19,7 +19,7 @@ const TabsComponent = () => {
       enTitle="TabMenu"
       faTitle="تب منو"
       id="TAB__MENU"
-      classNames={{ wrapper: "h-[634px] sm:h-[750px] lg:h-[627px]", top: "h-[45px] lg:h-[61px]", bottom: "xs:pb-0" }}
+      classNames={{ wrapper: "h-[634px] sm:h-[750px] lg:h-[627px]", top: "h-[45px] lg:h-[61px]", bottom: "xs:pb-0 lg:pb-4" }}
     >
       <Tabs dir="rtl" defaultValue="1" className="overflow-hidden w-full h-full p-2.5 pb-0">
         <TabsList className="TAB__LIST flex w-full lg:w-[92%] lg:mx-auto lg:mt-8 overflow-x-auto lg:overflow-x-hidden overflow-y-hidden whitespace-nowrap gap-1 shrink-0! bg-nik-primary border border-[#D5f39B] rounded-lg lg:rounded-2xl scrollbar-hide touch-pan-x scroll-smooth snap-x snap-mandatory">
