@@ -220,19 +220,19 @@ const FormRightComponent = () => {
               {!methods.formState.dirtyFields.password ? (
                 <div className={cn("flex items-center gap-1 text-stone-500 tracking-tight sm:tracking-normal whitespace-nowrap")}>
                   <Minus className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
-                  شامل حروف خاص مثل : ؟-#% باشد
+                  باید شامل حروف خاص مثل $-#% باشد
                 </div>
               ) : methods.formState.dirtyFields.password &&
-                Array(methods.formState.errors.password).some((item) => item?.message === "  باید شامل حروف خاص مثل $-#%  باشد") ? (
+                Array(methods.formState.errors.password).some((item) => item?.message === "باید شامل حروف خاص مثل $-#%  باشد") ? (
                 <div className="flex items-center gap-1 text-destructive tracking-tight sm:tracking-normal whitespace-nowrap">
                   <XCircleIcon className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
-                  شامل حروف خاص مثل : ؟-#% باشد
+                  باید شامل حروف خاص مثل $-#% باشد
                 </div>
               ) : (
-                Array(methods.formState.errors.password).every((item) => item?.message !== "  باید شامل حروف خاص مثل $-#%  باشد") && (
+                Array(methods.formState.errors.password).every((item) => item?.message !== "باید شامل حروف خاص مثل $-#%  باشد") && (
                   <div className={cn("flex items-center gap-1 text-nik-foreground tracking-tight sm:tracking-normal whitespace-nowrap")}>
                     <CheckCircle2Icon className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
-                    شامل حروف خاص مثل : ؟-#% باشد
+                    باید شامل حروف خاص مثل $-#% باشد
                   </div>
                 )
               )}
