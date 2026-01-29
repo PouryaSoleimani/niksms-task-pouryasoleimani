@@ -70,7 +70,10 @@ const RegisterFormComponent = () => {
       </div>
 
       {/*//^ FORM__RIGHT */}
-      <div id="FORM__RIGHT" className="flex justify-center items-center-safe p-8 lg:p-0 w-full h-full -translate-y-16 lg:-translate-y-0 basis-7/12">
+      <div
+        id="FORM__RIGHT"
+        className="flex justify-center items-center-safe p-[25px] lg:p-0 w-full h-full -translate-y-16 lg:-translate-y-0 basis-7/12"
+      >
         <FormRightComponent />
       </div>
     </PartitionComponent>

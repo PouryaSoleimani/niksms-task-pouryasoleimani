@@ -39,6 +39,7 @@
   --sidebar-ring: oklch(0.709 0.01 56.259);
   --nik-primary: #dffca1;
   --nik-foreground: #094020;
+  --nik-secondary-foreground: #e9e9e9;
   --nik-gray: #f2f2f0;
   --nik-input-filled: #f9f9f9;
   --breakpoint-xs: 460px;
@@ -76,7 +77,8 @@
 
   --color-nik-primary: var(--nik-primary);
   --color-nik-foreground: var(--nik-foreground);
-
+  --color-nik-secondary-foreground: var(--color-nik-secondary-foreground);
+  
   --font-sans: var(--font-vazir);
   --font-mono: var(--font-vazir);
 

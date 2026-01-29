@@ -68,7 +68,7 @@ const FormRightComponent = () => {
   return (
     <div className="min-w-full">
       <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit(submitHandler)} dir="rtl" className="flex flex-col flex-0 gap-6 lg:gap-4 mx-auto lg:w-2/3">
+        <form onSubmit={methods.handleSubmit(submitHandler)} dir="rtl" className="flex flex-col flex-0 gap-4 lg:gap-4 mx-auto lg:w-2/3">
           <Controller
             control={methods.control}
             name="username"
@@ -173,11 +173,11 @@ const FormRightComponent = () => {
           />
 
           {/* PASSWORD HINTS */}
-          <div className="flex flex-col gap-2 text-stone-500 text-xs">
-            <div id="PASSWORD__MIN__LENGTH" className="flex items-center gap-1">
+          <div className="flex flex-col gap-3 px-1 text-nik-secondary-foreground text-xs">
+            <div id="PASSWORD__MIN__LENGTH" className="flex items-center-safe gap-3 text-[13px]">
               {!methods.formState.dirtyFields.password ? (
-                <div className={cn("flex justify-center items-start gap-1 text-stone-500 tracking-tight sm:tracking-normal whitespace-nowrap")}>
-                  <Minus className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
+                <div className={cn("flex justify-center items-center gap-1 text-stone-500 tracking-tight sm:tracking-normal whitespace-nowrap")}>
+                  <Minus className="stroke-1 w-4.5 translate-y-[2px] sm:translate-y-[1px]" />
                   حداقل باید 8 حرف باشد
                 </div>
               ) : methods.formState.dirtyFields.password &&
@@ -195,10 +195,10 @@ const FormRightComponent = () => {
                 )
               )}
             </div>
-            <div id="PASSWORD__CONTAINS__NUMBERS" className="flex items-center gap-1">
+            <div id="PASSWORD__CONTAINS__NUMBERS" className="flex items-center gap-1 text-[13px]">
               {!methods.formState.dirtyFields.password ? (
                 <div className={cn("flex items-center gap-1 text-stone-500 tracking-tight sm:tracking-normal whitespace-nowrap")}>
-                  <Minus className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
+                  <Minus className="stroke-1 w-4.5 translate-y-[2px] sm:translate-y-[1px]" />
                   رمز عبور باید شامل اعداد باشد
                 </div>
               ) : methods.formState.dirtyFields.password &&
@@ -216,10 +216,10 @@ const FormRightComponent = () => {
                 )
               )}
             </div>
-            <div id="PASSWORD__CONTAINS__SYMBOLS" className="flex items-center gap-1">
+            <div id="PASSWORD__CONTAINS__SYMBOLS" className="flex items-center gap-1 text-[13px]">
               {!methods.formState.dirtyFields.password ? (
                 <div className={cn("flex items-center gap-1 text-stone-500 tracking-tight sm:tracking-normal whitespace-nowrap")}>
-                  <Minus className="size-4 translate-y-[2px] sm:translate-y-[1px]" />
+                  <Minus className="stroke-1 w-4.5 translate-y-[2px] sm:translate-y-[1px]" />
                   باید شامل حروف خاص مثل $-#% باشد
                 </div>
               ) : methods.formState.dirtyFields.password &&
@@ -240,26 +240,27 @@ const FormRightComponent = () => {
           </div>
 
           {/* BUTTONS WRAPPER */}
-          <div id="BUTTONS__WRAPPER" className="flex gap-3 lg:py-5">
+          <div id="BUTTONS__WRAPPER" className="mt-2 px-2 grid grid-cols-7 gap-2 p-0">
             <Button
               disabled={!isValid || isSubmitting}
               aria-disabled={!isValid || isSubmitting}
               variant={"focused"}
-              className="flex items-center-safe gap-2 rounded-md w-[268px] text-white text-sm"
+              className="flex items-center-safe gap-2 rounded-md h-0 min-h-[44px] text-white text-sm col-span-4"
               type="submit"
             >
               <UserPlus className="size-[20px]" />
               ثبت نام
             </Button>
-            <div>
-              <Button
-                type="button"
-                variant={"outline"}
-                className="hover:bg-secondary border border-nik-gray hover:border-stone-200 rounded-md text-stone-500 text-sm"
-              >
-                انصراف
-              </Button>
-            </div>
+
+            <Button
+              type="button"
+              variant={"outline"}
+              disabled={!isValid || isSubmitting}
+              aria-disabled={!isValid || isSubmitting}
+              className="hover:bg-secondary disabled:border-nik-secondary-foreground/30 border border-nik-secondary-foreground hover:border-stone-200 rounded-md h-0 min-h-[44px] text-nik-secondary-foreground text-sm col-span-3"
+            >
+              انصراف
+            </Button>
           </div>
         </form>
       </FormProvider>
