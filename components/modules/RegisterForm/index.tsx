@@ -17,7 +17,7 @@ const RegisterFormComponent = () => {
       {/*//^ FORM LEFT */}
       <div
         id="FORM__LEFT"
-        className="flex lg:justify-center items-center-safe bg-nik-primary px-4 py-1 rounded-t-[10px] lg:rounded-l-2xl lg:rounded-tr-none w-full h-[190px] lg:h-full lg:basis-5/12"
+        className="flex lg:justify-center items-center-safe bg-nik-primary px-5 py-1 rounded-t-[10px] lg:rounded-l-2xl lg:rounded-tr-none w-full h-[190px] lg:h-full lg:basis-5/12"
       >
         <h2
           className={cn(
@@ -32,7 +32,7 @@ const RegisterFormComponent = () => {
             a
             <RotatingText
               texts={["Better", "Easier"]}
-              mainClassName="px-2 sm:px-2 md:px-3 bg-white text-nik-foreground text-bold *:-translate-y-0.75 overflow-hidden pb-px h-[37px] sm:py-1 md:py-2 items-center justify-center rounded-lg"
+              mainClassName="px-4 bg-white text-nik-foreground text-bold *:-translate-y-0.75 overflow-hidden pb-px h-[37px] sm:py-1 md:py-2 items-center justify-center rounded-lg"
               staggerFrom={"last"}
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
@@ -59,17 +59,17 @@ const RegisterFormComponent = () => {
         </h2>
       </div>
 
-      {/* SMILEY__MOBILE */}
+      {/*//& SMILEY__MOBILE */}
       <div id="SMILEY__MOBILE" className="lg:hidden block z-10 relative inset-0 bg-nik-primary px-2 py-2 rounded-full -translate-y-12">
         <Image src={"/images/form/Smiley.png"} width={38} height={38} alt="smiley" />
       </div>
 
-      {/* SMILEY__DESKTOP */}
+      {/*//& SMILEY__DESKTOP */}
       <div id="SMILEY__DESKTOP" className="hidden lg:block z-10 relative inset-0 bg-nik-primary px-3 py-3 rounded-full -translate-x-12">
         <Image src={"/images/form/Smiley.png"} width={48} height={48} alt="smiley" />
       </div>
 
-      {/* FORM__RIGHT */}
+      {/*//^ FORM__RIGHT */}
       <div id="FORM__RIGHT" className="flex justify-center items-center-safe p-8 lg:p-0 w-full h-full -translate-y-16 lg:-translate-y-0 basis-7/12">
         <FormRightComponent />
       </div>

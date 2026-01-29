@@ -19,7 +19,8 @@
   --muted-foreground: oklch(0.553 0.013 58.071);
   --accent: oklch(0.97 0.001 106.424);
   --accent-foreground: oklch(0.216 0.006 56.043);
-  --destructive: oklch(0.577 0.245 27.325);
+  --destructive: oklch(0.5884 0.184 24.81);
+  --destructive-foreground: oklch(0.2434 0.0826 25.86);
   --border: oklch(0.923 0.003 48.717);
   --input: oklch(0.923 0.003 48.717);
   --ring: oklch(0.709 0.01 56.259);
@@ -39,6 +40,7 @@
   --nik-primary: #dffca1;
   --nik-foreground: #094020;
   --nik-gray: #f2f2f0;
+  --nik-input-filled: #f9f9f9;
   --breakpoint-xs: 460px;
 }
 
@@ -82,7 +84,9 @@
   --color-input: var(--input);
 
   --color-border: var(--border);
+
   --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--color-destructive-foreground);
 
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
@@ -103,6 +107,7 @@
   --color-card: var(--card);
 
   --color-nik-gray: var(--nik-gray);
+  --color-nik-input-filled: var(--nik-input-filled);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
