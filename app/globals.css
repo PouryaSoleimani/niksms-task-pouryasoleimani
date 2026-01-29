@@ -37,11 +37,11 @@
   --sidebar-accent-foreground: oklch(0.216 0.006 56.043);
   --sidebar-border: oklch(0.923 0.003 48.717);
   --sidebar-ring: oklch(0.709 0.01 56.259);
-  --nik-primary: #dffca1;
-  --nik-foreground: #094020;
-  --nik-secondary-foreground: #e9e9e9;
-  --nik-gray: #f2f2f0;
-  --nik-input-filled: #f9f9f9;
+  --nik-primary: oklch(0.9495 0.1193 123.06);
+  --nik-foreground: oklch(0.3283 0.0785 152.44);
+  --nik-secondary-foreground: oklch(0.934 0 0);
+  --nik-gray: oklch(0.9606 0.0027 106.45);
+  --nik-input-filled: oklch(0.9821 0 0);
   --breakpoint-xs: 460px;
 }
 
@@ -77,8 +77,8 @@
 
   --color-nik-primary: var(--nik-primary);
   --color-nik-foreground: var(--nik-foreground);
-  --color-nik-secondary-foreground: var(--color-nik-secondary-foreground);
-  
+  --color-nik-secondary-foreground: var(--nik-secondary-foreground);
+
   --font-sans: var(--font-vazir);
   --font-mono: var(--font-vazir);
 
@@ -121,13 +121,14 @@
 
   --font-poppins: Poppins, sans-serif;
 
-  --text-md: 16px --breakpoint-xs: 460px;
+  --text-md: 16px;
+  --breakpoint-xs: 460px;
 }
 
 body {
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: white;
   background-image: radial-gradient(rgb(243, 243, 243) 2px, transparent 0);
   background-size: 30px 30px;
   background-position: -5px -5px;
