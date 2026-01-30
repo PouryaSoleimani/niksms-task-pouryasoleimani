@@ -39,7 +39,7 @@ export default function RangeSliderMobile({ min = 10, max = 100, step = 10, defa
     <div className="flex min-w-[350px] flex-row overflow-hidden h-[418px] border-2 m-auto items-center justify-center bg-white p-3" dir="rtl">
       <div className="flex items-center justify-between">
         {/* SLIDER CONTAINER */}
-        <div className="rotate-90 py-10 px-10 bg-nik-primary -translate-x-16 xs:-translate-x-0 w-[350px]  my-4 pt-4 pb-[50px] rounded-[16px] border border-nik-gray">
+        <div className="rotate-90 py-10 px-10 bg-nik-primary -translate-x-16 xs:translate-x-4 w-[350px]  my-4 pt-4 pb-[50px] rounded-[16px] border border-nik-gray">
           {/* Slider track background with gradient */}
           <div className="relative mb-2 left-2 translate-y-8">
             {/* Background track - unfilled portion (light) */}
@@ -78,8 +78,8 @@ export default function RangeSliderMobile({ min = 10, max = 100, step = 10, defa
                   draggable={false}
                   key={idx}
                   className={cn(
-                    "text-[13px] pointer-events-none select-none z-0  translate-y-11 -translate-x-2  h-full -rotate-90 text-nik-foreground font-medium",
-                    Math.floor((label / 10) % 2) == 0 && "-translate-y-5 -translate-x-2",
+                    "text-[13px] pointer-events-none select-none z-0  translate-y-11 -translate-x-1.5  h-full -rotate-90 text-nik-foreground font-medium",
+                    Math.floor((label / 10) % 2) == 0 && "-translate-y-5 -translate-x-1",
                   )}
                 >
                   <div
