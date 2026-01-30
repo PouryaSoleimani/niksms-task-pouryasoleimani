@@ -6,10 +6,6 @@ export const Estedad = localFont({
   src: "./../public/fonts/Estedad-FD[KSHD,wght].woff2",
 });
 
-// export const Poppins = localFont({
-//   src : ''
-// })
-
 export const metadata: Metadata = {
   title: "NIK-SMS TASK | POURYA SOLEIMANI",
   description: "Nik-sms Task | Pourya Soleimani",
