@@ -36,7 +36,7 @@ export default function RangeSlider({ min = 10, max = 100, step = 10, defaultVal
 
   return (
     <div
-      className="flex min-w-[965px] rounded-[100px] w-0 flex-row-reverse overflow-hidden lg:flex-col items-center justify-center bg-white p-3"
+      className="flex sm:min-w-[600px] md:min-w-[730px] lg:min-w-[965px] rounded-[100px] w-0 overflow-hidden flex-col items-center justify-center bg-white p-3"
       dir="rtl"
     >
       {/* Display selected value */}

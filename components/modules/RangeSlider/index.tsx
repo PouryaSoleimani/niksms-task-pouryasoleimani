@@ -10,13 +10,13 @@ const RangeSliderComponent = () => {
       id="RANGE__SLIDER"
       faTitle="اسلایدر"
       enTitle="Slider"
-      classNames={{ wrapper: "overflow-hidden", bottom: "h-[418px] lg:h-[208px]" }}
+      classNames={{ wrapper: "overflow-hidden", bottom: "h-[418px] sm:h-[208px]" }}
     >
-      <div className="hidden md:block">
+      <div className="hidden sm:block">
         <RangeSlider min={10} max={100} step={1} defaultValue={20} onChange={handleChange} />
       </div>
 
-      <div className="md:hidden">
+      <div className="sm:hidden">
         <RangeSliderMobile min={10} max={100} step={1} defaultValue={25} onChange={handleChange} />
       </div>
     </PartitionComponent>
