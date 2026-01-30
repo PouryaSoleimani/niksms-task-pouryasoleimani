@@ -12,14 +12,15 @@ import { useEffect, useState } from "react";
 import UserPlus from "@/components/icons/UserPlus";
 import { sleep } from "@/utils/sleep";
 import Image from "next/image";
+import { useFormUiStore } from "@/store/useFormUiStore";
 
 const FormSchema = z.object({
-  username: z.string("وارد کردن نام الزامی است").min(1, "وارد کردن نام الزامی می باشد"),
+  username: z.string("وارد کردن نام الزامی است").min(1, "وارد کردن نام الزامی است"),
   phoneNumber: z
     .string("وارد کردن شماره موبایل الزامی است")
     .min(11, "شماره موبایل باید 11 رقم باشد")
     .max(11, "شماره موبایل باید 11 رقم باشد")
-    .regex(/^09\d{9}$/, "فقط استفاده از اعداد برای شماره موبایل مجاز است"),
+    .regex(/^09\d{9}$/, "شماره موبایل وارد شده صحیح نمی باشد"),
   password: z
     .string()
     .min(8, "حداقل باید 8 حرف باشد")
@@ -31,7 +32,10 @@ export type FormTypes = z.infer<typeof FormSchema>;
 
 const FormRightComponent = () => {
   const [inputType, setInputType] = useState<"password" | "text">("password");
-  const [formStatus, setformStatus] = useState<"unfilled" | "invalid-loading" | "invalid-error" | "valid-loading" | "valid-success">("valid-success");
+  const [formStatus, setformStatus] = useState<"unfilled" | "invalid-loading" | "invalid-error" | "valid-loading" | "valid-success">("unfilled");
+
+  const setter = useFormUiStore.setState;
+
   //^ REACT__HOOK__FORM
   const methods = useForm<FormTypes>({
     mode: "onChange",
@@ -48,6 +52,7 @@ const FormRightComponent = () => {
 
   //! INVALID FORM HANDLER
   async function invalidFormHandler() {
+    setter({ isShowLeft: false });
     setformStatus("invalid-loading");
     await sleep(2000);
     setformStatus("invalid-error");
@@ -59,12 +64,11 @@ const FormRightComponent = () => {
 
   //* SUBMIT___HANDLER
   async function submitHandler(data: FormTypes) {
+    setter({ isShowLeft: false });
     setformStatus("valid-loading");
     await sleep(2000);
     setformStatus("valid-success");
     methods.reset();
-    await sleep(2000);
-    setformStatus("unfilled");
     console.info("DATA =>", data);
   }
 
@@ -76,16 +80,21 @@ const FormRightComponent = () => {
     }
   }
 
+  function backHandler() {
+    setformStatus("unfilled");
+    setter({ isShowLeft: true });
+  }
+
   return (
     <div className="min-w-full">
       {formStatus === "invalid-loading" ? (
-        <div className="min-h-[472px] transition-all duration-300 h-0 flex flex-col flex-0 gap-4 lg:gap-4 mx-auto lg:w-2/3 items-center justify-center">
+        <div className="min-h-[748px] transition-all duration-300 h-0 flex flex-col flex-0 gap-4 lg:gap-4 mx-auto lg:w-[1015px] lg:min-h-[524px] lg:h-0 items-center justify-center">
           <div className="bg-desctructive-background rounded-full p-3 -translate-y-8">
             <Image src={"/images/form/SmileySad.png"} width={48} height={48} alt="smiley_sad" />
           </div>
         </div>
       ) : formStatus === "invalid-error" ? (
-        <div className="min-h-[472px] transition-all duration-300 h-0 flex flex-col flex-0 gap-4 lg:gap-4 mx-auto lg:w-2/3 items-center justify-center">
+        <div className="min-h-[748px] transition-all duration-300 h-0 flex flex-col flex-0 gap-4 lg:gap-4 mx-auto lg:w-[1015px] lg:min-h-[524px] lg:h-0 items-center justify-center">
           <div className="bg-desctructive-background rounded-full p-[17px]">
             <Image src={"/images/form/SmileySad.png"} width={48} height={48} alt="smiley_sad" />
           </div>
@@ -95,7 +104,7 @@ const FormRightComponent = () => {
             </h4>
             <p className="text-nik-secondary-foreground text-sm font-normal text-center">ثبت نام شما انجام نشد...</p>
             <Button
-              onClick={() => setformStatus("unfilled")}
+              onClick={backHandler}
               variant={"outline"}
               size={"sm"}
               className="rounded-full mt-4 text-destructive-foreground text-sm mx-auto w-[86px] h-[28px]"
@@ -105,13 +114,13 @@ const FormRightComponent = () => {
           </div>
         </div>
       ) : formStatus == "valid-loading" ? (
-        <div className="min-h-[472px] transition-all duration-300 h-0 flex flex-col flex-0 gap-4 lg:gap-4 mx-auto lg:w-2/3 items-center justify-center">
+        <div className="min-h-[748px] transition-all duration-300 h-0 flex flex-col flex-0 gap-4 lg:gap-4 mx-auto lg:w-[1015px] lg:min-h-[524px] lg:h-0 items-center justify-center">
           <div className="bg-nik-primary rounded-full p-3 -translate-y-8">
             <Image src={"/images/form/Smiley.png"} width={48} height={48} alt="smiley_sad" />
           </div>
         </div>
       ) : formStatus === "valid-success" ? (
-        <div className="min-h-[472px] transition-all duration-300 h-0 flex flex-col flex-0 gap-4 lg:gap-4 mx-auto lg:w-2/3 items-center justify-center">
+        <div className="min-h-[748px] transition-all duration-300 h-0 flex flex-col flex-0 gap-4 lg:gap-4 mx-auto lg:w-[1015px] lg:min-h-[524px] lg:h-0 items-center justify-center">
           <div className="bg-nik-primary rounded-full p-[17px]">
             <Image src={"/images/form/Smiley.png"} width={48} height={48} alt="smiley_sad" />
           </div>
@@ -121,7 +130,7 @@ const FormRightComponent = () => {
             </h4>
             <p className="text-nik-secondary-foreground text-sm font-normal text-center">به مجموعه ما خوش آمدید...</p>
             <Button
-              onClick={() => setformStatus("unfilled")}
+              onClick={backHandler}
               variant={"outline"}
               size={"sm"}
               className="rounded-full mt-4 text-nik-foreground text-sm mx-auto w-[86px] h-[28px]"
@@ -132,7 +141,11 @@ const FormRightComponent = () => {
         </div>
       ) : (
         <FormProvider {...methods}>
-          <form onSubmit={methods.handleSubmit(submitHandler)} dir="rtl" className="flex flex-col flex-0 gap-4 lg:gap-4 mx-auto lg:w-2/3">
+          <form
+            onSubmit={methods.handleSubmit(submitHandler)}
+            dir="rtl"
+            className="flex flex-col flex-0 gap-4 lg:gap-4 mx-auto lg:w-2/3 lg:min-h-[524px]"
+          >
             <Controller
               control={methods.control}
               name="username"
