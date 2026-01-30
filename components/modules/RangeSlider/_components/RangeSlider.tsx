@@ -1,6 +1,8 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { CircleQuestionMark, Minus } from "lucide-react";
+import Image from "next/image";
 import React from "react";
 
 import { useState } from "react";
@@ -14,7 +16,7 @@ interface RangeSliderProps {
   label?: string;
 }
 
-export default function RangeSlider({ min = 10, max = 100, step = 1, defaultValue = 25, onChange, label = "عدد" }: RangeSliderProps) {
+export default function RangeSlider({ min = 10, max = 100, step = 1, defaultValue = 25, onChange }: RangeSliderProps) {
   const [value, setValue] = useState(defaultValue);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,18 +36,18 @@ export default function RangeSlider({ min = 10, max = 100, step = 1, defaultValu
   const percentage = ((value - min) / (max - min)) * 100;
 
   return (
-    <div className="flex w-full flex-col items-center justify-center min-h-screen bg-white p-8" dir="rtl">
+    <div className="flex min-w-[1000px] w-0 flex-row-reverse lg:flex-col border-2 items-center justify-center bg-white p-8" dir="rtl">
       {/* Display selected value */}
-      <div className="mb-12 flex items-center gap-3">
-        <div className="flex items-center gap-2">
-          <span className="text-lg text-nik-foreground">عدد</span>
-          <span className="text-3xl font-bold text-nik-foreground">{value}</span>
-          <span className="text-lg text-nik-foreground">انتخاب شده</span>
-        </div>
-        <div className="flex items-center justify-center w-4 h-4 rounded-full bg-nik-foreground">
-          <span className="text-white text-sm">
-            <CircleQuestionMark className="size-4 " />
-          </span>
+      <div className="mb-12 flex items-baseline gap-3 border font-medium">
+        <div className="flex items-baseline gap-2">
+          <span className="text-md text-nik-foreground">عدد</span>
+          <span className="text-[40px] font-bold text-nik-foreground">{value}</span>
+          <div className="flex  items-center gap-2">
+            <span className="text-md text-nik-foreground">انتخاب شده</span>
+            <div className="flex items-center justify-center size-6 bg-white rounded-full">
+              <Image src={"/icons/Question.png"} width={50} height={50} alt="question_mark" />
+            </div>
+          </div>
         </div>
       </div>
 

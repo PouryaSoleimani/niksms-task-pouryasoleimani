@@ -1,11 +1,19 @@
 "use client";
 import PartitionComponent from "../Partition";
-import RangeSlider from "./_components";
+import RangeSlider from "./_components/RangeSlider";
+import RangeSliderMobile from "./_components/RangeSliderMobile";
 
 const RangeSliderComponent = () => {
+  const handleChange = (value: number) => console.log("Selected value:", value);
   return (
-    <PartitionComponent id="RANGE__SLIDER" faTitle="اسلایدر" enTitle="Slider" classNames={{ }}>
-      <RangeSlider min={10} max={100} step={10} defaultValue={20} onChange={(value) => console.log("Selected value:", value)} />
+    <PartitionComponent id="RANGE__SLIDER" faTitle="اسلایدر" enTitle="Slider" classNames={{ bottom: "h-[418px]" }}>
+      <div className="hidden md:block">
+        <RangeSlider min={10} max={100} step={1} defaultValue={25} onChange={handleChange} />
+      </div>
+
+      <div className="md:hidden">
+        <RangeSliderMobile min={10} max={100} step={1} defaultValue={25} onChange={handleChange} />
+      </div>
     </PartitionComponent>
   );
 };
