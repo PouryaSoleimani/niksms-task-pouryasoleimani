@@ -6,6 +6,7 @@ import React from "react";
 import { useState } from "react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 interface RangeSliderMobileProps {
   min?: number;
   max?: number;
@@ -30,17 +31,15 @@ export default function RangeSliderMobile({ min = 10, max = 100, step = 10, defa
   for (let i = min; i <= max; i += labelStep) {
     labels.push(i);
   }
-  const evenLabels = labels.filter((n) => Math.floor(n / 10) % 2 === 0);
-  const oddLabels = labels.filter((n) => Math.floor(n / 10) % 2 !== 0);
 
-  // Calculate percentage for background gradient
+  // CALCULATE PERCENTAGE FOR BACKGROUND COLOR
   const percentage = ((value - min) / (max - min)) * 100;
 
   return (
     <div className="flex min-w-[350px] flex-row overflow-hidden h-[418px] border-2 m-auto items-center justify-center bg-white p-3" dir="rtl">
       <div className="flex items-center justify-between">
         {/* SLIDER CONTAINER */}
-        <div className="rotate-90 py-10 px-10 bg-nik-primary -translate-x-20 w-[90%]  my-4 pt-4 rounded-[16px] border border-nik-gray">
+        <div className="rotate-90 py-10 px-10 bg-nik-primary -translate-x-16 w-[350px]  my-4 pt-4 rounded-[16px] border border-nik-gray">
           {/* Slider track background with gradient */}
           <div className="relative mb-2 left-2 translate-y-8">
             {/* Background track - unfilled portion (light) */}
@@ -72,18 +71,18 @@ export default function RangeSliderMobile({ min = 10, max = 100, step = 10, defa
           </div>
 
           {/* LABELS */}
-          <div className="flex justify-between relative inset-0 border border-red-500 ">
-            <div className="flex border border-blue-500 relative inset-0">
-              {evenLabels.map((label, idx) => (
-                <span key={idx} className="text-[13px] translate-y-10  h-full gap-16 -rotate-90 text-nik-foreground font-medium">
+          <div className="flex justify-between  ">
+            <div className="flex relative inset-0">
+              {labels.map((label, idx) => (
+                <span
+                  key={idx}
+                  className={cn(
+                    "text-[13px] translate-y-10  h-full gap-16 -rotate-90 text-nik-foreground font-medium",
+                    Math.floor((label / 10) % 2) == 0 && "-translate-y-5 -translate-x-2",
+                  )}
+                >
                   <span>{label}</span>
-                  <Minus className="stroke-1 -translate-y-4 translate-x-6 h-2.5" />
-                </span>
-              ))}
-              {oddLabels.map((label, idx) => (
-                <span key={idx} className="text-[13px] flex items-center-safe justify-start -rotate-90 text-nik-foreground font-medium">
-                  <span className="">{label}</span>
-                  <Minus className="stroke-1  h-2.5" />
+                  <Minus className={cn("stroke-1 -translate-y-4 translate-x-6 h-2.5", Math.floor((label / 10) % 2) == 0 && "-translate-x-3")} />
                 </span>
               ))}
             </div>
