@@ -4,6 +4,7 @@ import HeroComponent from "@/components/modules/Hero";
 import RangeSliderComponent from "@/components/modules/RangeSlider";
 import RegisterFormComponent from "@/components/modules/RegisterForm";
 import TabsComponent from "@/components/modules/Tabs";
+import TheEndComponent from "@/components/modules/TheEnd";
 import TopSlider from "@/components/modules/TopSlider";
 
 const HomePage = () => {
@@ -18,7 +19,7 @@ const HomePage = () => {
       <RegisterFormComponent />
       <GapComponent />
       <RangeSliderComponent />
-      <GapComponent />
+      <TheEndComponent />
     </div>
   );
 };
