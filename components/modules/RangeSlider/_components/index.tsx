@@ -1,5 +1,6 @@
 "use client";
 
+import { CircleQuestionMark, Minus } from "lucide-react";
 import React from "react";
 
 import { useState } from "react";
@@ -37,24 +38,27 @@ export default function RangeSlider({ min = 10, max = 100, step = 1, defaultValu
       {/* Display selected value */}
       <div className="mb-12 flex items-center gap-3">
         <div className="flex items-center gap-2">
-          <span className="text-3xl font-bold text-green-900">{value}</span>
-          <span className="text-2xl text-green-900">عدد</span>
+          <span className="text-lg text-nik-foreground">عدد</span>
+          <span className="text-3xl font-bold text-nik-foreground">{value}</span>
+          <span className="text-lg text-nik-foreground">انتخاب شده</span>
         </div>
-        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-green-900">
-          <span className="text-white text-sm">✓</span>
+        <div className="flex items-center justify-center w-4 h-4 rounded-full bg-nik-foreground">
+          <span className="text-white text-sm">
+            <CircleQuestionMark className="size-4 " />
+          </span>
         </div>
       </div>
 
       {/* Slider container */}
-      <div className="w-full max-w-3xl bg-nik-primary pt-6 rounded-3xl">
+      <div className="w-full max-w-3xl bg-nik-primary pt-6 pb-2 px-4 rounded-2xl border border-nik-gray">
         {/* Slider track background with gradient */}
-        <div className="relative mb-8">
+        <div className="relative mb-2">
           {/* Background track - unfilled portion (light) */}
-          <div className="absolute top-1/2 left-0 right-0 h-3 bg-white rounded-full -translate-y-1/2" />
+          <div className="absolute top-1/2 left-0 right-0 h-1 bg-white rounded-full -translate-y-1/2" />
 
           {/* Filled portion - from right to current value (dark) */}
           <div
-            className="absolute top-1/2 right-0 h-3 bg-nik-foreground rounded-full -translate-y-1/2 transition-all"
+            className="absolute top-1/2 right-0 h-1 bg-nik-foreground rounded-full -translate-y-1/2 transition-all"
             style={{ width: `${percentage}%` }}
           />
 
@@ -66,7 +70,7 @@ export default function RangeSlider({ min = 10, max = 100, step = 1, defaultValu
             step={step}
             value={value}
             onChange={handleChange}
-            className="relative w-full h-3 bg-transparent rounded-full appearance-none cursor-pointer accent-green-900 slider"
+            className="relative w-full h-3 bg-transparent rounded-full appearance-none cursor-pointer accent-nik-foreground slider"
             style={{
               background: "transparent",
             }}
@@ -77,6 +81,7 @@ export default function RangeSlider({ min = 10, max = 100, step = 1, defaultValu
         <div className="flex justify-between px-2">
           {labels.map((label, idx) => (
             <span key={idx} className="text-sm text-gray-600 font-medium">
+              <Minus className="stroke-1 rotate-90 translate-x-1 h-3" />
               {label}
             </span>
           ))}
