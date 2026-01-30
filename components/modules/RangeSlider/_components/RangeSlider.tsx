@@ -102,7 +102,7 @@ export default function RangeSlider({ min = 10, max = 100, step = 10, defaultVal
         </div>
 
         {/* Labels */}
-        <div className="flex justify-between w-full -translate-y-3">
+        <div className="flex sm:gap-7.5 md:gap-11 lg:gap-[62.5px] -translate-y-3">
           {labels.map((label, idx) => (
             <span key={idx} className="text-[13px] text-nik-foreground font-medium">
               <Minus className="stroke-1 rotate-90 translate-x-1 h-2.5" />

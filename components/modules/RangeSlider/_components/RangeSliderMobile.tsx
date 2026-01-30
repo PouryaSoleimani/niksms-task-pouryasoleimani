@@ -1,5 +1,5 @@
 "use client";
-import { Minus, X } from "lucide-react";
+import { X } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
@@ -39,7 +39,7 @@ export default function RangeSliderMobile({ min = 10, max = 100, step = 10, defa
     <div className="flex min-w-[350px] flex-row overflow-hidden h-[418px] border-2 m-auto items-center justify-center bg-white p-3" dir="rtl">
       <div className="flex items-center justify-between">
         {/* SLIDER CONTAINER */}
-        <div className="rotate-90 py-10 px-10 bg-nik-primary -translate-x-16 w-[350px]  my-4 pt-4 rounded-[16px] border border-nik-gray">
+        <div className="rotate-90 py-10 px-10 bg-nik-primary -translate-x-16 xs:-translate-x-0 w-[350px]  my-4 pt-4 pb-[50px] rounded-[16px] border border-nik-gray">
           {/* Slider track background with gradient */}
           <div className="relative mb-2 left-2 translate-y-8">
             {/* Background track - unfilled portion (light) */}
@@ -52,7 +52,7 @@ export default function RangeSliderMobile({ min = 10, max = 100, step = 10, defa
             />
 
             {/* Input slider */}
-            <div className="flex items-center">
+            <div className="flex items-center" draggable={false}>
               <span className="absolute -right-5 font-medium -rotate-90">1</span>
               <input
                 type="range"
@@ -61,7 +61,7 @@ export default function RangeSliderMobile({ min = 10, max = 100, step = 10, defa
                 step={step}
                 value={value}
                 onChange={handleChange}
-                className="relative w-full h-3 bg-transparent rounded-full appearance-none cursor-pointer accent-nik-foreground slider"
+                className="relative z-50 w-full select-none h-3 bg-transparent rounded-full appearance-none cursor-pointer accent-nik-foreground slider"
                 style={{
                   background: "transparent",
                 }}
@@ -71,18 +71,27 @@ export default function RangeSliderMobile({ min = 10, max = 100, step = 10, defa
           </div>
 
           {/* LABELS */}
-          <div className="flex justify-between  ">
-            <div className="flex relative inset-0">
+          <div className="translate-x-6 p-0">
+            <div className="flex">
               {labels.map((label, idx) => (
                 <span
+                  draggable={false}
                   key={idx}
                   className={cn(
-                    "text-[13px] translate-y-10  h-full gap-16 -rotate-90 text-nik-foreground font-medium",
+                    "text-[13px] pointer-events-none select-none z-0  translate-y-11 -translate-x-2  h-full -rotate-90 text-nik-foreground font-medium",
                     Math.floor((label / 10) % 2) == 0 && "-translate-y-5 -translate-x-2",
                   )}
                 >
-                  <span>{label}</span>
-                  <Minus className={cn("stroke-1 -translate-y-4 translate-x-6 h-2.5", Math.floor((label / 10) % 2) == 0 && "-translate-x-3")} />
+                  <div
+                    className={cn(
+                      "flex flex-row-reverse translate-x-4",
+                      Math.floor((label / 10) % 2) == 0 && "flex-row",
+                      Math.floor((label / 10) % 2) == 0 && "-translate-x-2 -translate-y-px",
+                    )}
+                  >
+                    <span>{label}</span>
+                    <span className="mx-1 mt-px opacity-40 ">-</span>
+                  </div>
                 </span>
               ))}
             </div>
@@ -90,7 +99,7 @@ export default function RangeSliderMobile({ min = 10, max = 100, step = 10, defa
         </div>
 
         {/* DISPLAY SELECTED VALUE */}
-        <div className="mb-12 flex items-center relative inset-0 z-20 bg-transparent backdrop-blur-3xl justify-center translate-x-8 gap-3 font-medium">
+        <div className="mb-12 flex items-center relative inset-0 z-20 bg-transparent backdrop-blur-3xl justify-center translate-x-8 xs:translate-x-12  gap-3 font-medium">
           <div
             id="BLUR__BACKGROUND"
             className="size-20 bg-radial from-nik-primary via-nik-primary/50 to-white rounded-full absolute top-16 z-0"
@@ -143,7 +152,7 @@ export default function RangeSliderMobile({ min = 10, max = 100, step = 10, defa
           width: 12px;
           height: 12px;
           border-radius: 50%;
-          background: #1a4d2e;
+          background: var(--color-nik-foreground);
           cursor: pointer;
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
@@ -152,7 +161,7 @@ export default function RangeSliderMobile({ min = 10, max = 100, step = 10, defa
           width: 12px;
           height: 12px;
           border-radius: 50%;
-          background: #1a4d2e;
+          background: var(--color-nik-foreground);
           cursor: pointer;
           border: none;
           margin-top: 2px;
