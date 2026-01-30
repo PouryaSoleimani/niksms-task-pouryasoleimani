@@ -1,19 +1,32 @@
 "use client";
+import Image from "next/image";
+import PartitionComponent from "../Partition";
+
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowLeft, X } from "lucide-react";
-import Image from "next/image";
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTrigger } from "@/components/animate-ui/components/radix/sheet";
 import { SheetTitle } from "@/components/animate-ui/primitives/radix/sheet";
-import PartitionComponent from "../Partition";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+
+import { tabList } from "./mocks/data";
+import { TabItem } from "./mocks/types";
+
+import { ArrowLeft, X } from "lucide-react";
+
 import useIsMobileXS from "@/hooks/useIsMobileXS";
-import useIsTablet from "@/hooks/useIsTablet";
 import useIsMobile from "@/hooks/useIsMobile";
+import useIsTablet from "@/hooks/useIsTablet";
+import useIsDesktop from "@/hooks/useIsDesktop";
+import { DialogClose } from "@radix-ui/react-dialog";
+import CustomImageComponent from "@/components/customs/CustomImageComponent";
 
 const TabsComponent = () => {
   const isXS = useIsMobileXS();
   const isTablet = useIsTablet();
   const isMobile = useIsMobile();
+  const isDesktop = useIsDesktop();
+
+  console.info("is DESKTOP =>", isDesktop);
   return (
     <PartitionComponent
       enTitle="TabMenu"
@@ -62,30 +75,59 @@ const TabsComponent = () => {
             </div>
             {/*//^ BOTTOM SECTION */}
             <div id="TABS__VIDEO" className="relative basis-1/3 h-[215px] md:h-1/2 lg:h-auto lg:basis-1/2 inset-0 flex items-center justify-center">
-              <Sheet>
-                <SheetTrigger className="bg-transparent p-2 pb-0 lg:rounded-t-[24px] lg:p-3 lg:bg-nik-gray ">
-                  <Image
-                    src={isTablet == true && item.mobileThumbnail ? item.mobileThumbnail : item.thumbnail}
-                    width={isXS ? 400 : 600}
-                    height={isXS ? 200 : 400}
-                    alt="thumbnail"
-                    className="mt-4 xs:mt-2 lg:mt-0 rounded-t-[17px] h-full"
-                  />
-                </SheetTrigger>
-                <SheetContent showCloseButton={false} dir="rtl" side="bottom" className="border-t-6 h-84 border-t-nik-primary rounded-t-xl">
-                  <SheetHeader className="inline-flex items-center justify-between ">
-                    <SheetTitle className="font-semibold text-md">پاپ آپ ویدیو</SheetTitle>
-                    <SheetClose asChild>
-                      <Button variant={"ghost"} className="rounded-md py-3 size-10 w-auto h-auto">
-                        <X className="size-6" />
-                      </Button>
-                    </SheetClose>
-                  </SheetHeader>
-                  <div className="flex items-center-safe justify-center py-2">
-                    <Image src={"/images/tabs/Popup__mobile.png"} width={350} height={350} alt="pop_up" />
-                  </div>
-                </SheetContent>
-              </Sheet>
+              {isDesktop == true ? (
+                <Dialog>
+                  <DialogTrigger className="bg-transparent p-2 pb-0 lg:rounded-t-[24px] lg:p-3 lg:bg-nik-gray">
+                    <Image
+                      src={isTablet == true && item.mobileThumbnail ? item.mobileThumbnail : item.thumbnail}
+                      width={isXS ? 400 : 600}
+                      height={isXS ? 200 : 400}
+                      alt="thumbnail"
+                      className="mt-4 xs:mt-2 lg:mt-0 rounded-t-[17px] h-full"
+                    />
+                  </DialogTrigger>
+                  <DialogContent className="border w-fit p-6 mx-auto rounded-4xl">
+                    <DialogHeader className="flex items-center px-1 justify-between flex-row">
+                      <DialogClose className="mr-auto size-8 " />
+                      <DialogTitle className="text-[20px] text-nik-foreground font-semibold">پاپ آپ ویدیو</DialogTitle>
+                    </DialogHeader>
+                    <div className="flex items-center-safe justify-center py-2">
+                      <CustomImageComponent
+                        src={"/images/tabs/Popup__mobile.png"}
+                        width={2041}
+                        height={574}
+                        skeletonClassName="w-full h-full"
+                        alt="pop_up"
+                      />
+                    </div>
+                  </DialogContent>
+                </Dialog>
+              ) : (
+                <Sheet>
+                  <SheetTrigger className="bg-transparent p-2 pb-0 lg:rounded-t-[24px] lg:p-3 lg:bg-nik-gray">
+                    <Image
+                      src={isTablet == true && item.mobileThumbnail ? item.mobileThumbnail : item.thumbnail}
+                      width={isXS ? 400 : 600}
+                      height={isXS ? 200 : 400}
+                      alt="thumbnail"
+                      className="mt-4 xs:mt-2 lg:mt-0 rounded-t-[17px] h-full"
+                    />
+                  </SheetTrigger>
+                  <SheetContent showCloseButton={false} dir="rtl" side="bottom" className="border-t-6 h-84 border-t-nik-primary rounded-t-xl">
+                    <SheetHeader className="inline-flex items-center justify-between ">
+                      <SheetTitle className="font-semibold text-md">پاپ آپ ویدیو</SheetTitle>
+                      <SheetClose asChild>
+                        <Button variant={"ghost"} className="rounded-md py-3 size-10 w-auto h-auto">
+                          <X className="size-6" />
+                        </Button>
+                      </SheetClose>
+                    </SheetHeader>
+                    <div className="flex items-center-safe justify-center py-2">
+                      <Image src={"/images/tabs/Popup__mobile.png"} width={350} height={350} alt="pop_up" />
+                    </div>
+                  </SheetContent>
+                </Sheet>
+              )}
             </div>
           </TabsContent>
         ))}
@@ -95,37 +137,3 @@ const TabsComponent = () => {
 };
 
 export default TabsComponent;
-
-type TabItem = { id: number; title: string; iconHeader: string; iconTitle: string; mobileThumbnail?: string; thumbnail: string };
-
-const tabList: TabItem[] = [
-  {
-    id: 1,
-    title: "منو شماره یک",
-    iconHeader: "/images/tabs/header/1.png",
-    iconTitle: "/images/tabs/header/11.png",
-    mobileThumbnail: "/images/tabs/Thumbnail_1_Mobile.png",
-    thumbnail: "/images/tabs/Thumbnail_1.png",
-  },
-  {
-    id: 2,
-    title: "منو شماره دو",
-    iconHeader: "/images/tabs/header/2.png",
-    iconTitle: "/images/tabs/header/22.png",
-    thumbnail: "/images/tabs/Thumbnail_2.png",
-  },
-  {
-    id: 3,
-    title: "منو شماره سه",
-    iconHeader: "/images/tabs/header/3.png",
-    iconTitle: "/images/tabs/header/33.png",
-    thumbnail: "/images/tabs/Thumbnail_3.png",
-  },
-  {
-    id: 4,
-    title: "منو شماره چهار",
-    iconHeader: "/images/tabs/header/4.png",
-    iconTitle: "/images/tabs/header/44.png",
-    thumbnail: "/images/tabs/Thumbnail_4.png",
-  },
-];
