@@ -25,7 +25,7 @@ const FormSchema = z.object({
     .string()
     .min(8, "حداقل باید 8 حرف باشد")
     .regex(/[0-9]/, "باید شامل عدد باشد")
-    .regex(/[!$%^&*]/, "باید شامل حروف خاص مثل $-#%  باشد"),
+    .regex(/[!$%^&@*]/, "باید شامل حروف خاص مثل $-#%  باشد"),
 });
 
 export type FormTypes = z.infer<typeof FormSchema>;
@@ -144,7 +144,7 @@ const FormRightComponent = () => {
           <form
             onSubmit={methods.handleSubmit(submitHandler)}
             dir="rtl"
-            className="flex flex-col flex-0 gap-4 lg:gap-4 mx-auto lg:w-2/3 lg:min-h-[524px]"
+            className="flex flex-col flex-0 gap-4 lg:gap-4 mx-auto lg:w-3/4 lg:min-h-[524px] lg:translate-y-12"
           >
             <Controller
               control={methods.control}
@@ -250,7 +250,7 @@ const FormRightComponent = () => {
             />
 
             {/* PASSWORD HINTS */}
-            <div className="flex flex-col gap-3 px-1 text-nik-secondary-foreground text-xs">
+            <div className="flex flex-col gap-3 lg:gap-2 px-1 text-nik-secondary-foreground text-xs">
               <div id="PASSWORD__MIN__LENGTH" className="flex items-center-safe gap-3 text-[13px]">
                 {!methods.formState.dirtyFields.password ? (
                   <div className={cn("flex justify-center items-center gap-1 text-stone-500 tracking-tight sm:tracking-normal whitespace-nowrap")}>
@@ -317,12 +317,12 @@ const FormRightComponent = () => {
             </div>
 
             {/* BUTTONS WRAPPER */}
-            <div id="BUTTONS__WRAPPER" className="mt-2 px-1 grid grid-cols-8 gap-1.5 p-0">
+            <div id="BUTTONS__WRAPPER" className="mt-2 px-1 grid grid-cols-8 gap-1.5 p-0 lg:mt-0">
               <Button
                 disabled={!isValid || isSubmitting}
                 aria-disabled={!isValid || isSubmitting}
                 variant={"focused"}
-                className="flex items-center-safe gap-2 rounded-md h-0 min-h-[44px] text-white text-sm col-span-5"
+                className="flex items-center-safe gap-2 rounded-md h-0 min-h-[44px] text-white text-sm col-span-5 lg:col-span-6"
                 type="submit"
               >
                 <UserPlus className="size-[20px]" />
@@ -333,7 +333,7 @@ const FormRightComponent = () => {
                 onClick={invalidFormHandler}
                 type="button"
                 variant={"outline"}
-                className="text-nik-secondary-foreground/80 hover:bg-transparent hover:text-nik-secondary-foreground rounded-md h-0 min-h-[44px] text-sm col-span-3"
+                className="text-nik-secondary-foreground/80 hover:bg-transparent hover:text-nik-secondary-foreground rounded-md h-0 min-h-[44px] text-sm col-span-3 lg:col-span-2"
               >
                 انصراف
               </Button>

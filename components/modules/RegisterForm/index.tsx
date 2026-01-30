@@ -25,7 +25,7 @@ const RegisterFormComponent = () => {
         >
           <h2
             className={cn(
-              "flex flex-col w-fit h-[126px] font-bold text-[30px] text-nik-foreground lg:text-5xl leading-[42px] lg:basis-10/12",
+              "flex flex-col w-fit h-[126px] lg:h-[256px] font-bold text-[30px] lg:text-[50px] text-nik-foreground leading-[42px] lg:leading-[64px] lg:w-[298px] lg:justify-center lg:-translate-y-6",
               poppins.className,
             )}
           >
@@ -36,7 +36,7 @@ const RegisterFormComponent = () => {
               a
               <RotatingText
                 texts={["Better", "Easier"]}
-                mainClassName="px-4 bg-white text-nik-foreground text-bold *:-translate-y-0.75 overflow-hidden pb-px h-[37px] sm:py-1 md:py-2 items-center justify-center rounded-lg"
+                mainClassName="px-4 bg-white text-nik-foreground text-bold *:-translate-y-0.75 lg:*:-translate-y-2 overflow-hidden pb-px h-[37px] lg:h-[60px] sm:py-1 md:py-2 items-center justify-center rounded-lg"
                 staggerFrom={"last"}
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
@@ -47,7 +47,7 @@ const RegisterFormComponent = () => {
                 rotationInterval={3000}
               />
             </span>
-            <div className="flex items-center gap-2">
+            <div className="flex lg:flex-col items-center lg:items-start justify-start">
               <span>World</span>
               <span>together</span>
             </div>
@@ -57,7 +57,7 @@ const RegisterFormComponent = () => {
                 alt="after_image"
                 width={20}
                 height={20}
-                className="right-27 bottom-10 absolute w-[7.46px] h-[9.02px]"
+                className="right-16.5 bottom-10 absolute w-[7.46px] h-[9.02px]"
               />
             </div>
           </h2>

@@ -9,7 +9,12 @@ const HeaderComponent = () => {
 
   return (
     <div className="items-center-safe relative top-0 left-0 flex justify-between px-4 lg:px-0">
-      <label className={cn("main bg-nik-primary border border-transparent hover:border-nik-foreground ", isExpanded == true && "bg-nik-foreground! text-nik-primary!")}>
+      <label
+        className={cn(
+          "main bg-nik-primary border border-transparent hover:border-nik-foreground ",
+          isExpanded == true && "bg-nik-foreground! text-nik-primary!",
+        )}
+      >
         <p className="lg:block hidden text-sm">منو تسک ها</p>
         <input className="inp" type="checkbox" checked={!isExpanded} onChange={() => setIsExpanded(!isExpanded)} />
         <div className={cn("bar", isExpanded && "expanded max-[820px]:-translate-x-1")}>
@@ -19,7 +24,7 @@ const HeaderComponent = () => {
         </div>
         <section className="menu-container bg-black">
           {menuItems.map((item: MenuItem) => (
-            <Link key={item.id} href={item.href} className="menu-list flex items-center-safe gap-1.5">
+            <Link key={item.id} href={item.href.toString().trim()} className="menu-list flex items-center-safe gap-1.5">
               <Circle className={cn("size-4", isExpanded && "fill-nik-primary")} />
               {item.title}
             </Link>
@@ -37,8 +42,8 @@ export default HeaderComponent;
 type MenuItem = { id: number; title: string; href: string };
 
 const menuItems: Array<MenuItem> = [
-  { id: 1, title: "اسلایدر", href: "#TOP__SLIDER" },
-  { id: 2, title: "تب منو", href: "#TAB__MENU" },
-  { id: 3, title: "فرم ثبت نام", href: "#REGISTER__FORM" },
-  { id: 4, title: "رنج اسلایدر", href: "#RANGE__SLIDER" },
+  { id: 1, title: "اسلایدر", href: "/#TOP__SLIDER" },
+  { id: 2, title: "تب منو", href: "/#TAB__MENU" },
+  { id: 3, title: "فرم ثبت نام", href: "/#REGISTER__FORM" },
+  { id: 4, title: "رنج اسلایدر", href: "/#RANGE__SLIDER" },
 ];
