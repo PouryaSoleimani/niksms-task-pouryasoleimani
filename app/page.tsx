@@ -9,7 +9,7 @@ import TopSlider from "@/components/modules/TopSlider";
 
 const HomePage = () => {
   return (
-    <div className="w-screen m-0 max-w-[1024px] border lg:mx-auto py-5 border-sky-900 min-h-screen">
+    <div className="w-screen m-0 max-w-[1024px] lg:mx-auto py-5 border-sky-900 min-h-screen">
       <HeaderComponent />
       <HeroComponent />
       <TopSlider />
